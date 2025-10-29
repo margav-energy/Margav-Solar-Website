@@ -1,0 +1,43 @@
+.products-page {
+  background: var(--color-white);
+  min-height: 100vh;
+  padding-top: 80px;
+}
+
+.products-hero-banner {
+  background: linear-gradient(135deg, var(--gradient-green));
+  padding: 120px 0 80px;
+  margin-bottom: 40px;
+}
+
+.products-page-title {
+  font-size: clamp(40px, 6vw, 64px);
+  font-weight: 800;
+  background: var(--gradient-green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 24px;
+  line-height: 1.2;
+  letter-spacing: -1px;
+  text-align: center;
+}
+
+.products-page-intro {
+  font-size: clamp(18px, 2.5vw, 24px);
+  background: var(--gradient-green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.8;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .products-hero-banner {
+    padding: 100px 0 60px;
+  }
+}
+
