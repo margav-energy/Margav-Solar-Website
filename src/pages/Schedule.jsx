@@ -69,7 +69,7 @@ const Schedule = () => {
     // Reverse geocoding to get address
     fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latlng.lat}&lon=${latlng.lng}`, {
       headers: {
-        'User-Agent': 'Margav Solar Contact Form'
+        'User-Agent': 'MarGav Solar Contact Form'
       }
     })
       .then(res => res.json())
@@ -92,7 +92,7 @@ const Schedule = () => {
         `https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(searchQuery)}&limit=1`,
         {
           headers: {
-            'User-Agent': 'Margav Solar Contact Form'
+            'User-Agent': 'MarGav Solar Contact Form'
           }
         }
       )
@@ -323,16 +323,38 @@ const Schedule = () => {
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="social-link"
+                        aria-label="Facebook"
+                        title="Facebook"
                       >
-                        Facebook
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24h11.495v-9.294H9.691V11.06h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.764v2.315h3.587l-.467 3.646h-3.12V24h6.116C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z"/>
+                        </svg>
                       </a>
                       <a 
                         href="https://www.instagram.com/margav.solar/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="social-link"
+                        aria-label="Instagram"
+                        title="Instagram"
                       >
-                        Instagram
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.17.056 1.97.24 2.427.403a4.92 4.92 0 0 1 1.78 1.153 4.92 4.92 0 0 1 1.153 1.78c.163.457.347 1.257.403 2.427.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.056 1.17-.24 1.97-.403 2.427a4.92 4.92 0 0 1-1.153 1.78 4.92 4.92 0 0 1-1.78 1.153c-.457.163-1.257.347-2.427.403-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.17-.056-1.97-.24-2.427-.403a4.92 4.92 0 0 1-1.78-1.153 4.92 4.92 0 0 1-1.153-1.78c-.163-.457-.347-1.257-.403-2.427C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.056-1.17.24-1.97.403-2.427a4.92 4.92 0 0 1 1.153-1.78 4.92 4.92 0 0 1 1.78-1.153c.457-.163 1.257-.347 2.427-.403C8.416 2.175 8.796 2.163 12 2.163m0-2.163C8.741 0 8.332.013 7.052.072 5.775.131 4.897.309 4.158.571a7.08 7.08 0 0 0-2.57 1.67A7.08 7.08 0 0 0-.082 4.91c-.262.739-.44 1.617-.499 2.894C-.013 8.985 0 9.395 0 12c0 2.605-.013 3.015.072 4.196.059 1.277.237 2.155.499 2.894a7.08 7.08 0 0 0 1.67 2.57 7.08 7.08 0 0 0 2.57 1.67c.739.262 1.617.44 2.894.499C8.985 24.013 9.395 24 12 24s3.015.013 4.196-.072c1.277-.059 2.155-.237 2.894-.499a7.08 7.08 0 0 0 2.57-1.67 7.08 7.08 0 0 0 1.67-2.57c.262-.739.44-1.617.499-2.894.085-1.181.072-1.591.072-4.196s.013-3.015-.072-4.196c-.059-1.277-.237-2.155-.499-2.894a7.08 7.08 0 0 0-1.67-2.57 7.08 7.08 0 0 0-2.57-1.67c-.739-.262-1.617-.44-2.894-.499C15.015.013 14.605 0 12 0z"/>
+                          <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.162a4 4 0 1 1 0-8 4 4 0 0 1 0 8z"/>
+                          <circle cx="18.406" cy="5.594" r="1.44"/>
+                        </svg>
+                      </a>
+                      <a 
+                        href="https://www.linkedin.com/company/margav-energy/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="social-link"
+                        aria-label="LinkedIn"
+                        title="LinkedIn"
+                      >
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                          <path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11.846 20H3.692V9h3.462v11zM5.5 7.654c-1.108 0-2.004-.898-2.004-2.006 0-1.108.896-2.004 2.004-2.004 1.108 0 2.006.896 2.006 2.004 0 1.108-.898 2.006-2.006 2.006zM20.308 20h-3.462v-5.746c0-1.369-.027-3.129-1.907-3.129-1.909 0-2.201 1.492-2.201 3.031V20h-3.462V9h3.324v1.507h.047c.463-.877 1.595-1.803 3.283-1.803 3.511 0 4.159 2.312 4.159 5.316V20z"/>
+                        </svg>
                       </a>
                     </div>
                   </div>

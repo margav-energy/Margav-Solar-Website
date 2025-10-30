@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import ScrollAnimation from '../components/ScrollAnimation'
+import BrandName from '../components/BrandName'
 import heroImage from '../assets/hero.png'
 import energyPlanImage from '../assets/Energy Plan.png'
 import installationImage from '../assets/Installation.png'
@@ -22,7 +23,7 @@ const Blog = () => {
       category: 'Tips & Guides',
       image: heroImage,
       readTime: '5 min read',
-      author: 'Margav Solar Team',
+      author: 'MarGav Solar Team',
       tags: ['Solar Efficiency', 'Maintenance', 'Energy Savings'],
       featured: true
     },
@@ -34,7 +35,7 @@ const Blog = () => {
       category: 'Technology',
       image: energyPlanImage,
       readTime: '7 min read',
-      author: 'Margav Solar Team',
+      author: 'MarGav Solar Team',
       tags: ['Battery Storage', 'Energy Independence'],
       featured: false
     },
@@ -46,7 +47,7 @@ const Blog = () => {
       category: 'Finance',
       image: installationImage,
       readTime: '6 min read',
-      author: 'Margav Solar Team',
+      author: 'MarGav Solar Team',
       tags: ['Installation', 'Costs', 'Incentives'],
       featured: false
     },
@@ -58,7 +59,7 @@ const Blog = () => {
       category: 'Finance',
       image: consultationImage,
       readTime: '8 min read',
-      author: 'Margav Solar Team',
+      author: 'MarGav Solar Team',
       tags: ['Grants', 'Incentives', 'Government'],
       featured: false
     },
@@ -70,7 +71,7 @@ const Blog = () => {
       category: 'Technology',
       image: assessmentImage,
       readTime: '6 min read',
-      author: 'Margav Solar Team',
+      author: 'MarGav Solar Team',
       tags: ['EV Chargers', 'Electric Vehicles'],
       featured: false
     },
@@ -82,7 +83,7 @@ const Blog = () => {
       category: 'Tips & Guides',
       image: aftercareImage,
       readTime: '7 min read',
-      author: 'Margav Solar Team',
+      author: 'MarGav Solar Team',
       tags: ['Maintenance', 'Care', 'Optimization'],
       featured: false
     }
@@ -113,7 +114,7 @@ const Blog = () => {
             <div className="blog-header-content">
               <span className="blog-header-tag">Insights & Research</span>
               <h1 className="blog-header-title">
-                <span className="blog-title-main">Margav Solar</span>
+                <span className="blog-title-main"><BrandName /></span>
                 <span className="blog-title-subtitle">Insights Hub</span>
               </h1>
               <p className="blog-header-tagline">

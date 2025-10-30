@@ -28,11 +28,11 @@ const FeaturesSection = () => {
 
   const solarFeature = {
     title: 'Solar Energy Integration',
-    description: 'Harness solar power for your home\'s energy needs and combat rising energy bills.',
+    description: 'Generate clean energy at home and reduce exposure to rising electricity costs.',
     savings: {
-      target: 'N 500,000',
-      reached: 'N 250,000',
-      percentage: 50
+      target: '£10,000',
+      reached: '£4,000',
+      percentage: 40
     }
   }
 

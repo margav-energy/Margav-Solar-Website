@@ -10,15 +10,20 @@ const RequestQuotePage = () => {
     name: '',
     email: '',
     phone: '',
-    houseType: '',
-    propertyAge: '',
-    monthlyUsage: '',
+    // Solar
+    numberOfBedrooms: '',
     roofType: '',
     roofOrientation: '',
-    currentElectricitySupplier: '',
+    panelTypePreference: '',
+    // Battery
     batteryCapacity: '',
-    numberOfEvChargers: '',
-    evChargerType: '',
+    batteryType: '',
+    batteryInstallationType: '',
+    // EV
+    offStreetParking: '',
+    evChargerPreference: '',
+    installationLocation: '',
+    // Misc
     additionalNotes: ''
   })
 
@@ -35,9 +40,34 @@ const RequestQuotePage = () => {
   }, [])
 
   const serviceTypes = [
-    { id: 'solar', label: 'Solar Panels', icon: '☀️', fields: ['roofType', 'roofOrientation'] },
-    { id: 'battery', label: 'Battery Storage', icon: '🔋', fields: ['batteryCapacity', 'currentElectricitySupplier'] },
-    { id: 'ev', label: 'EV Chargers', icon: '⚡', fields: ['numberOfEvChargers', 'evChargerType'] }
+    { id: 'solar', label: 'Solar Panels', fields: ['numberOfBedrooms', 'roofType', 'roofOrientation', 'panelTypePreference'], iconSvg: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="5"/>
+        <line x1="12" y1="1" x2="12" y2="3"/>
+        <line x1="12" y1="21" x2="12" y2="23"/>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+        <line x1="1" y1="12" x2="3" y2="12"/>
+        <line x1="21" y1="12" x2="23" y2="12"/>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+      </svg>
+    ) },
+    { id: 'battery', label: 'Battery Storage', fields: ['batteryCapacity', 'batteryType', 'batteryInstallationType'], iconSvg: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="7" width="15" height="10" rx="2"/>
+        <line x1="18" y1="10" x2="21" y2="10"/>
+        <line x1="18" y1="14" x2="21" y2="14"/>
+      </svg>
+    ) },
+    { id: 'ev', label: 'EV Chargers', fields: ['offStreetParking', 'evChargerPreference', 'installationLocation'], iconSvg: (
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M7 2h7a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V5a3 3 0 0 1 3-3z"/>
+        <path d="M11 22v-4"/>
+        <path d="M15 7h1a2 2 0 0 1 2 2v3"/>
+        <path d="M20 10h-2"/>
+      </svg>
+    ) }
   ]
 
   const handleServiceToggle = (serviceId) => {
@@ -46,10 +76,17 @@ const RequestQuotePage = () => {
         ? prev.services.filter(id => id !== serviceId)
         : [...prev.services, serviceId]
       
-      return {
-        ...prev,
-        services
+      const next = { ...prev, services }
+      // Set sensible defaults when enabling/disabling services
+      if (!prev.services.includes('ev') && serviceId === 'ev') {
+        next.evChargerPreference = 'fast'
       }
+      if (prev.services.includes('ev') && serviceId === 'ev') {
+        next.offStreetParking = ''
+        next.evChargerPreference = ''
+        next.installationLocation = ''
+      }
+      return next
     })
     
     if (errors.services) {
@@ -81,7 +118,7 @@ const RequestQuotePage = () => {
     
     // If services are selected, show additional base fields
     if (formData.services.length > 0) {
-      visibleFields.push('phone', 'houseType', 'propertyAge', 'monthlyUsage')
+      visibleFields.push('phone')
     }
     
     // Add service-specific fields based on selected services
@@ -269,10 +306,14 @@ const RequestQuotePage = () => {
                     className={`service-type-option ${formData.services.includes(service.id) ? 'selected' : ''}`}
                     onClick={() => handleServiceToggle(service.id)}
                   >
-                    <span className="service-icon">{service.icon}</span>
+                    <span className="service-icon" aria-hidden="true">{service.iconSvg}</span>
                     <span className="service-label">{service.label}</span>
                     {formData.services.includes(service.id) && (
-                      <span className="service-check">✓</span>
+                      <span className="service-check" aria-hidden="true">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
+                          <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                      </span>
                     )}
                   </button>
                 ))}
@@ -329,64 +370,85 @@ const RequestQuotePage = () => {
               </div>
             )}
 
-            {/* House Type */}
-            {visibleFields.includes('houseType') && (
-              <div className="form-group">
-                <label className="form-label">House Type</label>
-                <select
-                  name="houseType"
-                  value={formData.houseType}
-                  onChange={handleChange}
-                  className="form-input"
-                >
-                  <option value="">Select house type</option>
-                  <option value="detached">Detached</option>
-                  <option value="semi-detached">Semi-Detached</option>
-                  <option value="terraced">Terraced</option>
-                  <option value="flat">Flat/Apartment</option>
-                  <option value="bungalow">Bungalow</option>
-                  <option value="commercial">Commercial</option>
-                </select>
-              </div>
-            )}
-
-            {/* Age of Property */}
-            {visibleFields.includes('propertyAge') && (
-              <div className="form-group">
-                <label className="form-label">Age of Property</label>
-                <select
-                  name="propertyAge"
-                  value={formData.propertyAge}
-                  onChange={handleChange}
-                  className="form-input"
-                >
-                  <option value="">Select age range</option>
-                  <option value="new">New Build (0-5 years)</option>
-                  <option value="modern">Modern (6-20 years)</option>
-                  <option value="mid">Mid (21-50 years)</option>
-                  <option value="older">Older (50+ years)</option>
-                  <option value="listed">Listed/Historic</option>
-                </select>
-              </div>
-            )}
-
-            {/* Monthly Energy Usage */}
-            {visibleFields.includes('monthlyUsage') && (
-              <div className="form-group">
-                <label className="form-label">
-                  Monthly Energy Usage (kWh) <span className="optional">- Optional</span>
-                </label>
-                <input
-                  type="number"
-                  name="monthlyUsage"
-                  value={formData.monthlyUsage}
-                  onChange={handleChange}
-                  placeholder="Enter monthly usage"
-                  className="form-input"
-                  min="0"
-                  step="10"
-                />
-              </div>
+            {/* SOLAR PANEL CONFIGURATION */}
+            {formData.services.includes('solar') && (
+              <>
+                <div className="form-group">
+                  <label className="form-label">Solar Panel Configuration</label>
+                </div>
+                {visibleFields.includes('numberOfBedrooms') && (
+                  <div className="form-group">
+                    <label className="form-label">Number of Bedrooms</label>
+                    <select
+                      name="numberOfBedrooms"
+                      value={formData.numberOfBedrooms}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select number of bedrooms</option>
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5+">5+</option>
+                    </select>
+                  </div>
+                )}
+                {visibleFields.includes('roofType') && (
+                  <div className="form-group">
+                    <label className="form-label">Roof Type</label>
+                    <select
+                      name="roofType"
+                      value={formData.roofType}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select roof type</option>
+                      <option value="tiled">Tiled</option>
+                      <option value="slate">Slate</option>
+                      <option value="metal">Metal</option>
+                      <option value="flat">Flat</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                )}
+                {visibleFields.includes('roofOrientation') && (
+                  <div className="form-group">
+                    <label className="form-label">Roof Orientation</label>
+                    <select
+                      name="roofOrientation"
+                      value={formData.roofOrientation}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select roof orientation</option>
+                      <option value="south">South</option>
+                      <option value="south-east">South-East</option>
+                      <option value="south-west">South-West</option>
+                      <option value="east">East</option>
+                      <option value="west">West</option>
+                      <option value="north">North</option>
+                    </select>
+                  </div>
+                )}
+                {visibleFields.includes('panelTypePreference') && (
+                  <div className="form-group">
+                    <label className="form-label">Panel Type Preference</label>
+                    <select
+                      name="panelTypePreference"
+                      value={formData.panelTypePreference}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select panel type preference</option>
+                      <option value="monocrystalline">Monocrystalline</option>
+                      <option value="polycrystalline">Polycrystalline</option>
+                      <option value="thin-film">Thin-film</option>
+                      <option value="unsure">Not sure</option>
+                    </select>
+                  </div>
+                )}
+              </>
             )}
 
             {/* Solar Panel Specific Fields */}
@@ -429,71 +491,117 @@ const RequestQuotePage = () => {
               </>
             )}
 
-            {/* Battery Storage Specific Fields */}
-            {hasBattery && (
+            {/* BATTERY STORAGE CONFIGURATION */}
+            {formData.services.includes('battery') && (
               <>
                 <div className="form-group">
-                  <label className="form-label">Required Battery Capacity (kWh)</label>
-                  <input
-                    type="number"
-                    name="batteryCapacity"
-                    value={formData.batteryCapacity}
-                    onChange={handleChange}
-                    placeholder="Enter required capacity"
-                    className="form-input"
-                    min="0"
-                    step="0.5"
-                  />
+                  <label className="form-label">Battery Storage Configuration</label>
                 </div>
-
-                <div className="form-group">
-                  <label className="form-label">Current Electricity Supplier</label>
-                  <input
-                    type="text"
-                    name="currentElectricitySupplier"
-                    value={formData.currentElectricitySupplier}
-                    onChange={handleChange}
-                    placeholder="Enter current supplier name"
-                    className="form-input"
-                  />
-                </div>
+                {visibleFields.includes('batteryCapacity') && (
+                  <div className="form-group">
+                    <label className="form-label">Storage Capacity Needed</label>
+                    <select
+                      name="batteryCapacity"
+                      value={formData.batteryCapacity}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select storage capacity needed</option>
+                      <option value="2-5kWh">2–5 kWh</option>
+                      <option value="5-10kWh">5–10 kWh</option>
+                      <option value="10-15kWh">10–15 kWh</option>
+                      <option value=">15kWh">15 kWh+</option>
+                    </select>
+                  </div>
+                )}
+                {visibleFields.includes('batteryType') && (
+                  <div className="form-group">
+                    <label className="form-label">Battery Type</label>
+                    <select
+                      name="batteryType"
+                      value={formData.batteryType}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select battery type</option>
+                      <option value="lithium-ion">Lithium‑ion</option>
+                      <option value="lithium-iron-phosphate">LiFePO₄</option>
+                      <option value="other">Other / Not sure</option>
+                    </select>
+                  </div>
+                )}
+                {visibleFields.includes('batteryInstallationType') && (
+                  <div className="form-group">
+                    <label className="form-label">Installation Type</label>
+                    <select
+                      name="batteryInstallationType"
+                      value={formData.batteryInstallationType}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select installation type</option>
+                      <option value="indoor">Indoor</option>
+                      <option value="outdoor">Outdoor</option>
+                      <option value="unsure">Not sure</option>
+                    </select>
+                  </div>
+                )}
               </>
             )}
 
-            {/* EV Charger Specific Fields */}
-            {hasEv && (
+            {/* EV CHARGER CONFIGURATION */}
+            {formData.services.includes('ev') && (
               <>
                 <div className="form-group">
-                  <label className="form-label">Number of EV Chargers</label>
-                  <select
-                    name="numberOfEvChargers"
-                    value={formData.numberOfEvChargers}
-                    onChange={handleChange}
-                    className="form-input"
-                  >
-                    <option value="">Select number</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4+">4+</option>
-                  </select>
+                  <label className="form-label">EV Charger Configuration</label>
                 </div>
-
-                <div className="form-group">
-                  <label className="form-label">EV Charger Type</label>
-                  <select
-                    name="evChargerType"
-                    value={formData.evChargerType}
-                    onChange={handleChange}
-                    className="form-input"
-                  >
-                    <option value="">Select type</option>
-                    <option value="standard">Standard (3.7kW)</option>
-                    <option value="fast">Fast (7kW)</option>
-                    <option value="rapid">Rapid (22kW+)</option>
-                    <option value="unsure">Not Sure</option>
-                  </select>
-                </div>
+                {visibleFields.includes('offStreetParking') && (
+                  <div className="form-group">
+                    <label className="form-label">Off-street Parking</label>
+                    <select
+                      name="offStreetParking"
+                      value={formData.offStreetParking}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Do you have off-street parking?</option>
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </div>
+                )}
+                {visibleFields.includes('evChargerPreference') && (
+                  <div className="form-group">
+                    <label className="form-label">Charger Type Preference</label>
+                    <select
+                      name="evChargerPreference"
+                      value={formData.evChargerPreference}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select charger type preference</option>
+                      <option value="fast">Fast (7kW)</option>
+                    </select>
+                  </div>
+                )}
+                {visibleFields.includes('installationLocation') && (
+                  <div className="form-group">
+                    <label className="form-label">Installation Location</label>
+                    <select
+                      name="installationLocation"
+                      value={formData.installationLocation}
+                      onChange={handleChange}
+                      className="form-input"
+                    >
+                      <option value="">Select installation location</option>
+                      <option value="driveway">Driveway</option>
+                      <option value="garage">Garage</option>
+                      <option value="car-park">Car park</option>
+                      <option value="street">On-street</option>
+                      <option value="other">Other</option>
+                    </select>
+                  </div>
+                )}
               </>
             )}
 

@@ -17,6 +17,14 @@
   --ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);
   --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
+.text-gradient {
+  background: var(--gradient-green);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
 
 * {
   margin: 0;
@@ -38,6 +46,20 @@ html {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+/* Ensure button text is centered across the app */
+.btn,
+a.btn,
+button.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+button {
+  text-align: center;
 }
 
 button {

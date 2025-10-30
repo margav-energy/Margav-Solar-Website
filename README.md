@@ -1,6 +1,6 @@
-# Margav Solar - Website
+# MarGav Solar - Website
 
-A modern, responsive website for Margav Solar, a branch of Margav Energy focused on solar energy generation to combat rising energy costs.
+A modern, responsive website for MarGav Solar, a branch of Margav Energy focused on solar energy generation to combat rising energy costs.
 
 ## Features
 
@@ -129,5 +129,5 @@ All brand colors are defined as CSS variables in `src/styles/index.css`. Modify 
 
 ## License
 
-© 2024 Margav Solar. All rights reserved.
+© 2024 MarGav Solar. All rights reserved.
 

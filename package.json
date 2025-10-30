@@ -1,7 +1,7 @@
 {
   "name": "margav-solar",
   "version": "1.0.0",
-  "description": "Margav Solar - Solar Energy Solutions Website",
+  "description": "MarGav Solar - Solar Energy Solutions Website",
   "private": true,
   "type": "module",
   "scripts": {

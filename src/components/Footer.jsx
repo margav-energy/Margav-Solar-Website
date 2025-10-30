@@ -62,8 +62,8 @@ const Footer = () => {
             <nav className="footer-nav">
               <Link to="/">Home</Link>
               <Link to="/about">About</Link>
-              <Link to="/work">Work</Link>
-              <Link to="/products">Products</Link>
+              {/* <Link to="/work">Work</Link> */}
+              {/* <Link to="/products">Products</Link> */}
               <Link to="/blog">Blog</Link>
               <Link to="/request-quote">Request a Quote</Link>
               <Link to="/schedule">Schedule →</Link>
@@ -113,7 +113,36 @@ const Footer = () => {
                   className="footer-social-icon"
                   aria-label="Facebook"
                 >
-                  <span className="social-icon-text">f</span>
+                  {/* Facebook official glyph */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692V11.06h3.128V8.414c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.794.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.313h3.59l-.467 3.646h-3.123V24h6.127C23.407 24 24 23.407 24 22.675V1.325C24 .593 23.407 0 22.675 0z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://www.linkedin.com/company/margav-energy/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="footer-social-icon"
+                  aria-label="LinkedIn"
+                >
+                  {/* LinkedIn official glyph */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11.846 20H3.692V9h3.462v11zM5.5 7.654c-1.108 0-2.004-.898-2.004-2.006 0-1.108.896-2.004 2.004-2.004 1.108 0 2.006.896 2.006 2.004 0 1.108-.898 2.006-2.006 2.006zM20.308 20h-3.462v-5.746c0-1.369-.027-3.129-1.907-3.129-1.909 0-2.201 1.492-2.201 3.031V20h-3.462V9h3.324v1.507h.047c.463-.877 1.595-1.803 3.283-1.803 3.511 0 4.159 2.312 4.159 5.316V20z"/>
+                  </svg>
                 </a>
                 <a 
                   href="https://www.instagram.com/margav.solar/" 
@@ -122,7 +151,19 @@ const Footer = () => {
                   className="footer-social-icon"
                   aria-label="Instagram"
                 >
-                  <span className="social-icon-text">📷</span>
+                  {/* Instagram official glyph */}
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 1.366.062 2.633.35 3.608 1.325.975.975 1.263 2.242 1.325 3.608.058 1.266.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.062 1.366-.35 2.633-1.325 3.608-.975.975-2.242 1.263-3.608 1.325-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-1.366-.062-2.633-.35-3.608-1.325-.975-.975-1.263-2.242-1.325-3.608C2.175 15.584 2.163 15.204 2.163 12s.012-3.584.07-4.85c.062-1.366.35-2.633 1.325-3.608C4.533 1.927 5.8 1.639 7.166 1.577 8.432 1.519 8.812 1.507 12 1.507m0-1.507C8.741 0 8.332.013 7.052.072 5.771.131 4.659.428 3.68 1.407 2.701 2.386 2.404 3.498 2.345 4.779 2.287 6.059 2.274 6.468 2.274 9.727v4.546c0 3.259.013 3.668.071 4.948.059 1.281.356 2.393 1.335 3.372.979.979 2.091 1.276 3.372 1.335 1.28.058 1.689.071 4.948.071s3.668-.013 4.948-.071c1.281-.059 2.393-.356 3.372-1.335.979-.979 1.276-2.091 1.335-3.372.058-1.28.071-1.689.071-4.948V9.727c0-3.259-.013-3.668-.071-4.948-.059-1.281-.356-2.393-1.335-3.372C20.393.428 19.281.131 18 .072 16.72.013 16.311 0 13.053 0H12z"/>
+                    <path d="M12 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zm0 10.186a4.024 4.024 0 1 1 0-8.048 4.024 4.024 0 0 1 0 8.048z"/>
+                    <circle cx="18.406" cy="5.594" r="1.44"/>
+                  </svg>
                 </a>
               </div>
             </div>
@@ -139,7 +180,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="footer-bottom">
           <p className="footer-copyright">
-            © {new Date().getFullYear()} MarGav Solar. All rights reserved.
+            © {new Date().getFullYear()} <span className="text-gradient">MarGav</span> <span style={{ color: 'var(--color-blue)' }}>Solar</span>. All rights reserved.
           </p>
           <div className="footer-policies">
             <a href="#privacy" className="footer-policy-link">Privacy Policy</a>

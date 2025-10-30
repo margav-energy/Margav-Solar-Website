@@ -17,6 +17,36 @@ const FAQ = () => {
     {
       question: 'Do you provide warranties and aftercare?',
       answer: 'Yes. Equipment warranties up to 25 years, plus our workmanship guarantee and ongoing support.'
+    },
+    {
+      question: 'Will Energy Prices Continue Rising?',
+      answer:
+        'Short-term dips aside, wholesale energy prices are expected to trend upward as global demand grows and fossil fuel reduction targets drive higher electricity consumption. This underpins a continued upward trajectory of electricity prices for the foreseeable future.'
+    },
+    {
+      question: 'Do I Really Need to Generate My Own Energy?',
+      answer:
+        "With aging infrastructure and ambitious decarbonisation goals, the UK faces tightening electricity supply. Generating your own energy improves resilience and reduces long‑term exposure to rising grid prices."
+    },
+    {
+      question: 'Why Have Energy Prices Risen So Much?',
+      answer:
+        'The majority of UK electricity relies on natural gas. When wholesale gas costs rise, generation costs and consumer prices follow. Fixed deals have reduced, exposing customers more directly to wholesale market movement.'
+    },
+    {
+      question: 'Why Do I Need to Reduce My Carbon Footprint?',
+      answer:
+        'Cutting your carbon footprint slows climate change, improves public health, and supports a cleaner economy. Solar reduces reliance on fossil fuels and lowers the emissions from powering your home each day.'
+    },
+    {
+      question: 'Can I Sell My Energy Back to the Grid?',
+      answer:
+        'Yes, through the Smart Export Guarantee (SEG). You are paid for exported excess energy. Rates vary by supplier and are not fixed, but any export can offset your bill.'
+    },
+    {
+      question: 'Can I Add to the System Later?',
+      answer:
+        'Yes. You can expand with more panels, a higher‑capacity inverter, additional batteries, or EV chargers as your needs change.'
     }
   ]
 

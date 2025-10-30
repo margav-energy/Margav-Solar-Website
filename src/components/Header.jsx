@@ -36,14 +36,14 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <Link to="/" className="logo" onClick={closeMenu}>
-          <img src={logoImage} alt="Margav Solar Logo" className="logo-image" />
+          <img src={logoImage} alt="MarGav Solar Logo" className="logo-image" />
         </Link>
         
         <nav className={`nav ${isMenuOpen ? 'nav-open' : ''}`}>
           <Link to="/" className={`nav-link ${location.pathname === '/' ? 'active' : ''}`} onClick={closeMenu}>Home</Link>
           <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={closeMenu}>About</Link>
-          <Link to="/work" className={`nav-link ${location.pathname === '/work' ? 'active' : ''}`} onClick={closeMenu}>Work</Link>
-          <Link to="/products" className={`nav-link ${location.pathname === '/products' ? 'active' : ''}`} onClick={closeMenu}>Products</Link>
+          {/* <Link to="/work" className={`nav-link ${location.pathname === '/work' ? 'active' : ''}`} onClick={closeMenu}>Work</Link> */}
+          {/* <Link to="/products" className={`nav-link ${location.pathname === '/products' ? 'active' : ''}`} onClick={closeMenu}>Products</Link> */}
           <Link to="/blog" className={`nav-link ${location.pathname === '/blog' ? 'active' : ''}`} onClick={closeMenu}>Blog</Link>
           <Link to="/request-quote" className={`nav-link ${location.pathname === '/request-quote' ? 'active' : ''}`} onClick={closeMenu}>Request a Quote</Link>
           <Link to="/schedule" className={`nav-button schedule-button ${location.pathname === '/schedule' ? 'active' : ''}`} onClick={closeMenu}>

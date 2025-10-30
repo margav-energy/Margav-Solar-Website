@@ -91,9 +91,10 @@
 }
 
 .features-right {
-  background: #f8f8f8;
+  background: #ffffff; /* brighter background for stronger contrast */
   padding: 40px;
   border-radius: 12px;
+  border: 1px solid #eaeaea;
 }
 
 .solar-feature-card {

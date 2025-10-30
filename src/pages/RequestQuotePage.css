@@ -2,6 +2,7 @@
   background: var(--color-white);
   min-height: 100vh;
   padding-top: 80px;
+  padding-bottom: 100px;
 }
 
 .quote-hero-banner {
@@ -105,10 +106,7 @@
   transform: translateY(-2px);
 }
 
-.service-icon {
-  font-size: 36px;
-  line-height: 1;
-}
+.service-icon svg { display: block; }
 
 .service-label {
   font-size: 14px;

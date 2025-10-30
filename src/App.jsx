@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Favicon from './components/Favicon'
+import ScrollToTop from './components/ScrollToTop'
 import Home from './pages/Home'
 import About from './pages/About'
 import Work from './pages/Work'
@@ -18,6 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <Favicon />
+        <ScrollToTop />
         <Header />
         <main>
           <Routes>

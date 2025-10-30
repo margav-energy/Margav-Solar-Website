@@ -1,6 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ScrollAnimation from '../components/ScrollAnimation'
+import BrandName from '../components/BrandName'
+import FAQ from '../components/FAQ'
 import ImageCarousel from '../components/ImageCarousel'
 import teamMemberImage from '../assets/team member.png'
 import installationImage from '../assets/Installation.png'
@@ -58,28 +60,32 @@ const About = () => {
     {
       name: 'Shaun Martin',
       role: 'General Manager',
-      image: 'SM'
+      image: 'SM',
+      linkedinUrl: 'https://www.linkedin.com/in/shaun-martin-b2596426/'
     },
     {
       name: 'Kelly Bugler',
       role: 'Operations Manager',
-      image: 'KB'
+      image: 'KB',
+      linkedinUrl: 'https://www.linkedin.com/in/kelly-bugler/'
     },
     {
       name: 'Tom Marshall',
-      role: 'Director',
-      image: 'TM'
+      role: 'Managing Director',
+      image: 'TM',
+      linkedinUrl: 'https://www.linkedin.com/in/tombat/'
     },
     {
       name: 'Matt Gavin',
-      role: 'Director',
-      image: 'MG'
+      role: 'Account Executive',
+      image: 'MG',
+      linkedinUrl: 'https://www.linkedin.com/in/matt-margav-660a54112/'
     }
   ]
 
   const impactStats = [
     {
-      value: '15+',
+      value: '10+',
       label: 'Years of expertise'
     },
     {
@@ -87,11 +93,11 @@ const About = () => {
       label: 'Solar Installations'
     },
     {
-      value: '2 MW+',
+      value: ' 1 MW+',
       label: 'Power capacity'
     },
     {
-      value: '£500K+',
+      value: '£100K+',
       label: 'Saved on energy bills'
     }
   ]
@@ -125,7 +131,7 @@ const About = () => {
               <div className="our-story-image">
                 <img 
                   src={teamMemberImage} 
-                  alt="Margav Solar team" 
+                  alt="MarGav Solar team" 
                   className="story-image"
                 />
               </div>
@@ -134,7 +140,7 @@ const About = () => {
               <div className="our-story-text">
                 <h2 className="our-story-title">Our story</h2>
                 <p className="our-story-paragraph">
-                  At Margav Solar, we are dedicated to transforming the way homes and businesses access energy. Our mission is simple: to provide smart, sustainable, and cost-effective renewable energy solutions that reduce reliance on fossil fuels and lower electricity bills.
+                  At <BrandName /> we are dedicated to transforming the way homes and businesses access energy. Our mission is simple: to provide smart, sustainable, and cost-effective renewable energy solutions that reduce reliance on fossil fuels and lower electricity bills.
                 </p>
                 <p className="our-story-paragraph">
                   To make clean energy accessible and affordable for everyone by delivering high-quality renewable energy solutions that drive sustainability, efficiency, and energy independence.
@@ -152,7 +158,7 @@ const About = () => {
             <ScrollAnimation animation="fadeInUp" delay={0}>
               <span className="why-choose-label">WHY US</span>
               <div className="why-choose-title-row">
-                <h2 className="why-choose-title">Why choose Margav Solar?</h2>
+                <h2 className="why-choose-title">Why choose <BrandName className="inline-brand" />?</h2>
                 <p className="why-choose-intro">
                   We take pride in delivering high-quality, future-proof renewable energy solutions. With years of experience and a team of certified experts, we ensure every project meets the highest standards of performance and reliability.
                 </p>
@@ -181,7 +187,7 @@ const About = () => {
               <span className="team-label">OUR TEAM</span>
               <div className="team-title-row">
                 <h2 className="team-main-title">
-                  The amazing team behind <span className="team-title-highlight">Margav Solar</span>
+                  The amazing team behind <span className="team-title-highlight"><BrandName /></span>
                 </h2>
                 <p className="team-description">
                   Our founding team has over 50+ years of combined Customer Support and Technology experience.
@@ -198,6 +204,32 @@ const About = () => {
                   </div>
                   <h3 className="team-member-name-new">{member.name}</h3>
                   <p className="team-member-role-new">{member.role}</p>
+                    <div className="team-member-links">
+                      {member.linkedinUrl ? (
+                        <a
+                          href={member.linkedinUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label={`LinkedIn profile of ${member.name}`}
+                          title="LinkedIn"
+                          className="team-link"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11.846 20H3.692V9h3.462v11zM5.5 7.654c-1.108 0-2.004-.898-2.004-2.006 0-1.108.896-2.004 2.004-2.004 1.108 0 2.006.896 2.006 2.004 0 1.108-.898 2.006-2.006 2.006zM20.308 20h-3.462v-5.746c0-1.369-.027-3.129-1.907-3.129-1.909 0-2.201 1.492-2.201 3.031V20h-3.462V9h3.324v1.507h.047c.463-.877 1.595-1.803 3.283-1.803 3.511 0 4.159 2.312 4.159 5.316V20z"/>
+                          </svg>
+                        </a>
+                      ) : (
+                        <span
+                          className="team-link disabled"
+                          aria-disabled="true"
+                          title="LinkedIn (coming soon)"
+                        >
+                          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zm-11.846 20H3.692V9h3.462v11zM5.5 7.654c-1.108 0-2.004-.898-2.004-2.006 0-1.108.896-2.004 2.004-2.004 1.108 0 2.006.896 2.006 2.004 0 1.108-.898 2.006-2.006 2.006zM20.308 20h-3.462v-5.746c0-1.369-.027-3.129-1.907-3.129-1.909 0-2.201 1.492-2.201 3.031V20h-3.462V9h3.324v1.507h.047c.463-.877 1.595-1.803 3.283-1.803 3.511 0 4.159 2.312 4.159 5.316V20z"/>
+                          </svg>
+                        </span>
+                      )}
+                    </div>
                 </div>
               </ScrollAnimation>
             ))}
@@ -232,6 +264,8 @@ const About = () => {
           </ScrollAnimation>
         </div>
       </div>
+
+      <FAQ />
     </section>
   )
 }

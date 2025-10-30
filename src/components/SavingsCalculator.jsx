@@ -71,45 +71,7 @@ const SavingsCalculator = () => {
         </ScrollAnimation>
 
         <div className="savings-content">
-          {/* Left Side: Benefits and Info */}
-          <div className="savings-left">
-            <ScrollAnimation animation="fadeInRight" delay={200}>
-              <div className="benefits-section">
-                <h3 className="benefits-title">Benefits of doing the quickscan</h3>
-                <div className="benefits-grid">
-                  {benefits.map((benefit, index) => (
-                    <div key={index} className="benefit-card">
-                      <span className="benefit-icon">{benefit.icon}</span>
-                      <h4 className="benefit-card-title">{benefit.title}</h4>
-                      <p className="benefit-card-description">{benefit.description}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation animation="fadeInRight" delay={400}>
-              <div className="selling-points-section">
-                <h3 className="selling-points-title">Unique selling point of the company</h3>
-                <div className="selling-points-grid">
-                  {sellingPoints.map((point, index) => (
-                    <div key={index} className="selling-point-card">
-                      <div className="selling-point-stat">{point.stat}</div>
-                      <div className="selling-point-label">{point.label}</div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </ScrollAnimation>
-
-            <ScrollAnimation animation="fadeInUp" delay={600}>
-              <Link to="/request-quote" className="btn btn-quickscan">
-                Do the quickscan →
-              </Link>
-            </ScrollAnimation>
-          </div>
-
-          {/* Right Side: Graph */}
+          {/* Left Side: Graph */}
           <div className="savings-right">
             <ScrollAnimation animation="fadeInLeft" delay={300}>
               <div className="savings-graph-card">
@@ -233,6 +195,44 @@ const SavingsCalculator = () => {
                   </div>
                 </div>
               </div>
+            </ScrollAnimation>
+          </div>
+
+          {/* Right Side: Benefits and Info */}
+          <div className="savings-left">
+            <ScrollAnimation animation="fadeInRight" delay={200}>
+              <div className="benefits-section">
+                <h3 className="benefits-title">Benefits of doing the quickscan</h3>
+                <div className="benefits-grid">
+                  {benefits.map((benefit, index) => (
+                    <div key={index} className="benefit-card">
+                      <span className="benefit-icon">{benefit.icon}</span>
+                      <h4 className="benefit-card-title">{benefit.title}</h4>
+                      <p className="benefit-card-description">{benefit.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollAnimation>
+
+            {/* <ScrollAnimation animation="fadeInRight" delay={400}>
+              <div className="selling-points-section">
+                <h3 className="selling-points-title">Unique selling point of the company</h3>
+                <div className="selling-points-grid">
+                  {sellingPoints.map((point, index) => (
+                    <div key={index} className="selling-point-card">
+                      <div className="selling-point-stat">{point.stat}</div>
+                      <div className="selling-point-label">{point.label}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </ScrollAnimation> */}
+
+            <ScrollAnimation animation="fadeInUp" delay={600}>
+              <Link to="/request-quote" className="btn btn-quickscan">
+                Do the quickscan →
+              </Link>
             </ScrollAnimation>
           </div>
         </div>
