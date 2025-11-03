@@ -9,25 +9,28 @@ const __dirname = dirname(__filename)
 const app = express()
 const PORT = process.env.PORT || 3000
 
-// Automatically detect the build folder
-const possibleBuildFolders = ['dist', 'build', 'public']
-let distPath = possibleBuildFolders.find(folder => existsSync(join(__dirname, folder)))
-
-if (!distPath) {
-  console.error('❌ No build folder found. Checked: ', possibleBuildFolders.join(', '))
-  process.exit(1)
-}
-
-distPath = join(__dirname, distPath)
+// Vite builds to 'dist' folder by default
+const distPath = join(__dirname, 'dist')
 const indexPath = join(distPath, 'index.html')
 
-if (!existsSync(indexPath)) {
-  console.error(`❌ index.html not found in ${distPath}`)
+// Verify dist folder exists (created by npm run build)
+if (!existsSync(distPath)) {
+  console.error('❌ Build folder not found!')
+  console.error(`   Expected: ${distPath}`)
+  console.error('   Make sure "npm run build" runs successfully before starting the server.')
   process.exit(1)
 }
 
-console.log(`✅ Serving static files from: ${distPath}`)
-console.log(`✅ index.html found at: ${indexPath}`)
+// Verify index.html exists
+if (!existsSync(indexPath)) {
+  console.error('❌ index.html not found in build folder!')
+  console.error(`   Expected: ${indexPath}`)
+  console.error('   Make sure the build completed successfully.')
+  process.exit(1)
+}
+
+console.log(`✅ Build folder found: ${distPath}`)
+console.log(`✅ index.html found: ${indexPath}`)
 
 // Log all incoming requests
 app.use((req, res, next) => {
