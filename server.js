@@ -1,7 +1,7 @@
 import express from 'express'
 import { fileURLToPath } from 'url'
-import { dirname, join, extname } from 'path'
-import { readFileSync, existsSync, readdirSync } from 'fs'
+import { dirname, join } from 'path'
+import { existsSync } from 'fs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -9,44 +9,40 @@ const __dirname = dirname(__filename)
 const app = express()
 const PORT = process.env.PORT || 3000
 
-// Vite builds to 'dist' folder by default
+// Set dist folder
 const distPath = join(__dirname, 'dist')
 const indexPath = join(distPath, 'index.html')
 
-// Verify dist folder exists (created by npm run build)
+// Check if dist folder and index.html exist
 if (!existsSync(distPath)) {
-  console.error('❌ Build folder not found!')
-  console.error(`   Expected: ${distPath}`)
-  console.error('   Make sure "npm run build" runs successfully before starting the server.')
+  console.error('❌ ERROR: dist folder not found:', distPath)
   process.exit(1)
 }
 
-// Verify index.html exists
 if (!existsSync(indexPath)) {
-  console.error('❌ index.html not found in build folder!')
-  console.error(`   Expected: ${indexPath}`)
-  console.error('   Make sure the build completed successfully.')
+  console.error('❌ ERROR: index.html not found in dist folder:', indexPath)
   process.exit(1)
 }
 
-console.log(`✅ Build folder found: ${distPath}`)
-console.log(`✅ index.html found: ${indexPath}`)
+console.log('✅ Serving static files from:', distPath)
+console.log('✅ index.html found at:', indexPath)
 
 // Log all incoming requests
 app.use((req, res, next) => {
-  console.log(`[${new Date().toISOString()}] ${req.method} ${req.path}`)
+  console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl}`)
   next()
 })
 
-// Serve static files if they exist
+// Serve static files from dist
 app.use(express.static(distPath))
 
-// SPA fallback: serve index.html for any route not found
+// SPA fallback: serve index.html for all other routes
 app.get('*', (req, res) => {
+  console.log(`→ SPA fallback triggered for: ${req.originalUrl}`)
   res.sendFile(indexPath)
 })
 
-// Error handling middleware
+// Error handler
 app.use((err, req, res, next) => {
   console.error('❌ ERROR:', err)
   res.status(500).send('Internal Server Error')
@@ -56,6 +52,7 @@ app.listen(PORT, () => {
   console.log('========================================')
   console.log('🚀 Server running...')
   console.log(`📦 Port: ${PORT}`)
-  console.log(`📁 Build folder: ${distPath}`)
+  console.log(`📁 Dist folder: ${distPath}`)
+  console.log(`📄 Index file: ${indexPath}`)
   console.log('========================================\n')
 })
