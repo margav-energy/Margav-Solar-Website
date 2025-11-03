@@ -1,7 +1,7 @@
 import express from 'express'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
-import { readFileSync, existsSync } from 'fs'
+import { readFileSync, existsSync, statSync } from 'fs'
 import { extname } from 'path'
 
 const __filename = fileURLToPath(import.meta.url)
@@ -14,7 +14,7 @@ const distPath = join(__dirname, 'dist')
 const indexPath = join(distPath, 'index.html')
 
 // Serve static files (assets like JS, CSS, images) from the dist directory
-// This middleware will serve files that exist, or call next() if they don't
+// Use a custom middleware that checks if file exists before serving
 app.use((req, res, next) => {
   const ext = extname(req.path)
   
@@ -22,14 +22,21 @@ app.use((req, res, next) => {
   if (ext && ext !== '.html') {
     const filePath = join(distPath, req.path)
     
-    // Check if file exists
-    if (existsSync(filePath)) {
-      // File exists, serve it
-      express.static(distPath)(req, res, next)
-    } else {
-      // File doesn't exist, pass to next middleware (our catch-all)
-      next()
+    try {
+      // Check if file exists and is a file (not directory)
+      if (existsSync(filePath)) {
+        const stats = statSync(filePath)
+        if (stats.isFile()) {
+          // File exists, use express.static to serve it
+          return express.static(distPath)(req, res, next)
+        }
+      }
+    } catch (err) {
+      // Error checking file, pass through
     }
+    
+    // File doesn't exist, pass to next middleware
+    next()
   } else {
     // No extension or HTML file - pass to catch-all to serve index.html
     next()
