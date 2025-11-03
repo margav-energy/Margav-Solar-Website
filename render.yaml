@@ -3,7 +3,7 @@ services:
     name: margav-solar
     env: node
     buildCommand: npm install && npm run build
-    staticPublishPath: ./dist
+    startCommand: npm start
     envVars:
       - key: NODE_VERSION
         value: 18.x
