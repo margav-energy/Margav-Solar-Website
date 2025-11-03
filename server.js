@@ -19,7 +19,7 @@ app.use(express.static(distPath))
 // Catch-all handler for ALL routes and HTTP methods
 // This serves index.html for any route that doesn't match a static file
 // This allows React Router to handle client-side routing
-app.use('*', (req, res) => {
+app.all('*', (req, res) => {
   console.log(`[${new Date().toISOString()}] Serving index.html for: ${req.method} ${req.originalUrl || req.path}`)
   
   if (!existsSync(indexPath)) {
