@@ -1,7 +1,7 @@
 import express from 'express'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
-import { readFileSync, existsSync, statSync } from 'fs'
+import { readFileSync, existsSync } from 'fs'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -12,43 +12,15 @@ const PORT = process.env.PORT || 3000
 const distPath = join(__dirname, 'dist')
 const indexPath = join(distPath, 'index.html')
 
-// Custom middleware to serve static files only if they exist
-app.use((req, res, next) => {
-  // Check if this is a request for a static asset (has file extension)
-  const pathParts = req.path.split('/')
-  const lastPart = pathParts[pathParts.length - 1]
-  
-  // If it has a file extension and is not index.html, try to serve it
-  if (lastPart.includes('.') && lastPart !== 'index.html') {
-    const filePath = join(distPath, req.path)
-    
-    // Check if file exists
-    if (existsSync(filePath)) {
-      try {
-        const stats = statSync(filePath)
-        if (stats.isFile()) {
-          // File exists - use express.static to serve it
-          return express.static(distPath)(req, res, () => {
-            // If static middleware couldn't serve it, pass to next
-            if (!res.headersSent) {
-              next()
-            }
-          })
-        }
-      } catch (err) {
-        // Error checking file, pass to next
-      }
-    }
-  }
-  
-  // Not a static file or doesn't exist - pass to catch-all
-  next()
-})
+// Serve static files from dist directory
+// Express static will serve files if they exist, otherwise call next()
+app.use(express.static(distPath))
 
-// Catch-all handler: serves index.html for ALL routes
-// This allows React Router to handle routing client-side
-app.get('*', (req, res) => {
-  console.log(`[${new Date().toISOString()}] Serving index.html for: ${req.method} ${req.path}`)
+// Catch-all handler for ALL routes and HTTP methods
+// This serves index.html for any route that doesn't match a static file
+// This allows React Router to handle client-side routing
+app.use('*', (req, res) => {
+  console.log(`[${new Date().toISOString()}] Serving index.html for: ${req.method} ${req.originalUrl || req.path}`)
   
   if (!existsSync(indexPath)) {
     console.error('ERROR: index.html not found at:', indexPath)
