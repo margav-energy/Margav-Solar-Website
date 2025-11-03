@@ -16,20 +16,24 @@ const indexPath = join(distPath, 'index.html')
 app.use(express.static(distPath))
 
 // Catch-all handler: must be defined after static middleware
-// This serves index.html for all routes, allowing React Router to handle routing
-app.get('*', (req, res) => {
-  if (!existsSync(indexPath)) {
-    console.error('ERROR: index.html not found at:', indexPath)
-    return res.status(500).send('Error: index.html not found')
-  }
-  
-  try {
-    const html = readFileSync(indexPath, 'utf8')
-    res.setHeader('Content-Type', 'text/html')
-    res.send(html)
-  } catch (error) {
-    console.error('Error reading index.html:', error)
-    res.status(500).send('Error loading the application')
+// Handle all routes by serving index.html (React Router will handle routing client-side)
+// Use app.use instead of app.get to catch ALL HTTP methods and ensure it runs
+app.use((req, res) => {
+  // Only serve index.html if we haven't already sent a response
+  if (!res.headersSent) {
+    if (!existsSync(indexPath)) {
+      console.error('ERROR: index.html not found at:', indexPath)
+      return res.status(500).send('Error: index.html not found')
+    }
+    
+    try {
+      const html = readFileSync(indexPath, 'utf8')
+      res.setHeader('Content-Type', 'text/html')
+      res.send(html)
+    } catch (error) {
+      console.error('Error reading index.html:', error)
+      res.status(500).send('Error loading the application')
+    }
   }
 })
 
