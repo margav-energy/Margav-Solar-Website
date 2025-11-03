@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import solarPanelImage from '../assets/solar panel.png'
 import evChargerImage from '../assets/ev charger.png'
-import batteryImage from '../assets/battery.webp'
+import batteryImage from '../assets/battery.png'
 import './Services.css'
 
 const Services = () => {
