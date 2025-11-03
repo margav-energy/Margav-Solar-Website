@@ -2,6 +2,7 @@ import express from 'express'
 import { fileURLToPath } from 'url'
 import { dirname, join } from 'path'
 import { readFileSync, existsSync } from 'fs'
+import { extname } from 'path'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
@@ -13,12 +14,33 @@ const distPath = join(__dirname, 'dist')
 const indexPath = join(distPath, 'index.html')
 
 // Serve static files (assets like JS, CSS, images) from the dist directory
-// When a file isn't found, Express will call next() which passes to our catch-all route
-app.use(express.static(distPath))
+// This middleware will serve files that exist, or call next() if they don't
+app.use((req, res, next) => {
+  const ext = extname(req.path)
+  
+  // Only try to serve static files for assets (JS, CSS, images, etc.)
+  if (ext && ext !== '.html') {
+    const filePath = join(distPath, req.path)
+    
+    // Check if file exists
+    if (existsSync(filePath)) {
+      // File exists, serve it
+      express.static(distPath)(req, res, next)
+    } else {
+      // File doesn't exist, pass to next middleware (our catch-all)
+      next()
+    }
+  } else {
+    // No extension or HTML file - pass to catch-all to serve index.html
+    next()
+  }
+})
 
-// Handle client-side routing - return index.html for all routes
-// This catches all routes that don't match static files
+// Handle client-side routing - return index.html for ALL routes
+// This catches all routes including /schedule, /about, etc.
 app.get('*', (req, res) => {
+  console.log(`Serving index.html for route: ${req.path}`)
+  
   // Check if index.html exists
   if (!existsSync(indexPath)) {
     console.error('ERROR: index.html not found at:', indexPath)
