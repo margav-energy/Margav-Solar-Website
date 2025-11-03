@@ -13,9 +13,8 @@ const distPath = join(__dirname, 'dist')
 const indexPath = join(distPath, 'index.html')
 
 // Serve static files (assets like JS, CSS, images) from the dist directory
-app.use(express.static(distPath, { 
-  fallthrough: false 
-}))
+// When a file isn't found, Express will call next() which passes to our catch-all route
+app.use(express.static(distPath))
 
 // Handle client-side routing - return index.html for all routes
 // This catches all routes that don't match static files
