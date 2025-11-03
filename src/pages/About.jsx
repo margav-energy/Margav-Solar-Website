@@ -4,22 +4,25 @@ import ScrollAnimation from '../components/ScrollAnimation'
 import BrandName from '../components/BrandName'
 import FAQ from '../components/FAQ'
 import ImageCarousel from '../components/ImageCarousel'
-import teamMemberImage from '../assets/team member.png'
-import installationImage from '../assets/Installation.png'
-import consultationImage from '../assets/Consultation.png'
-import assessmentImage from '../assets/Property Assessment & Quotation.png'
-import aftercareImage from '../assets/Aftercare & Support.png'
-import energyPlanImage from '../assets/Energy Plan.png'
+import gallery1 from '../assets/gallery_1.png'
+import gallery2 from '../assets/gallery_2.png'
+import gallery3 from '../assets/gallery_3.png'
+import gallery4 from '../assets/gallery_4.png'
+import gallery5 from '../assets/gallery_5.png'
+import gallery6 from '../assets/gallery_6.png'
+import gallery7 from '../assets/gallery_7.png'
 import './About.css'
 
 const About = () => {
   // Images for the hero carousel
   const heroImages = [
-    { src: installationImage, alt: 'Solar panel installation' },
-    { src: consultationImage, alt: 'Solar energy consultation' },
-    { src: assessmentImage, alt: 'Property assessment' },
-    { src: installationImage, alt: 'Professional installation' },
-    { src: consultationImage, alt: 'Expert consultation' }
+    { src: gallery1, alt: 'Solar panel gallery image 1' },
+    { src: gallery2, alt: 'Solar panel gallery image 2' },
+    { src: gallery3, alt: 'Solar panel gallery image 3' },
+    { src: gallery4, alt: 'Solar panel gallery image 4' },
+    { src: gallery5, alt: 'Solar panel gallery image 5' },
+    { src: gallery6, alt: 'Solar panel gallery image 6' },
+    { src: gallery7, alt: 'Solar panel gallery image 7' }
   ]
 
   // Why Choose Us benefits
@@ -85,7 +88,7 @@ const About = () => {
 
   const impactStats = [
     {
-      value: '10+',
+      value: '20+',
       label: 'Years of expertise'
     },
     {
@@ -97,7 +100,7 @@ const About = () => {
       label: 'Power capacity'
     },
     {
-      value: '£100K+',
+      value: '£10M+',
       label: 'Saved on energy bills'
     }
   ]
@@ -130,7 +133,7 @@ const About = () => {
             <ScrollAnimation animation="fadeInRight" delay={200}>
               <div className="our-story-image">
                 <img 
-                  src={teamMemberImage} 
+                  src={gallery4} 
                   alt="MarGav Solar team" 
                   className="story-image"
                 />
@@ -240,28 +243,21 @@ const About = () => {
       {/* Impact Section */}
       <div className="impact-section">
         <div className="container">
-          <ScrollAnimation animation="fadeInUp" delay={0}>
-            <h2 className="impact-title">Delivering Measurable Impact</h2>
-          </ScrollAnimation>
-          <div className="impact-stats">
-            {impactStats.map((stat, index) => (
-              <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
-                <div className="impact-stat-card">
-                  <div className="impact-stat-value">{stat.value}</div>
-                  <div className="impact-stat-label">{stat.label}</div>
-                </div>
-              </ScrollAnimation>
-            ))}
-          </div>
-          <ScrollAnimation animation="fadeInUp" delay={500}>
-            <div className="impact-image-wrapper">
-              <img 
-                src={installationImage} 
-                alt="Solar installation impact" 
-                className="impact-image"
-              />
+          <div className="impact-content">
+            <ScrollAnimation animation="fadeInUp" delay={0}>
+              <h2 className="impact-title">Delivering Measurable Impact</h2>
+            </ScrollAnimation>
+            <div className="impact-stats">
+              {impactStats.map((stat, index) => (
+                <ScrollAnimation key={index} animation="fadeInUp" delay={index * 100}>
+                  <div className="impact-stat-card">
+                    <div className="impact-stat-value">{stat.value}</div>
+                    <div className="impact-stat-label">{stat.label}</div>
+                  </div>
+                </ScrollAnimation>
+              ))}
             </div>
-          </ScrollAnimation>
+          </div>
         </div>
       </div>
 

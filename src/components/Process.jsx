@@ -4,8 +4,8 @@ import ScrollAnimation from './ScrollAnimation'
 import consultationImage from '../assets/Consultation.png'
 import assessmentImage from '../assets/Property Assessment & Quotation.png'
 import energyPlanImage from '../assets/Energy Plan.png'
-import installationImage from '../assets/Installation.png'
-import aftercareImage from '../assets/Aftercare & Support.png'
+import gallery3 from '../assets/gallery_3.png'
+import gallery6 from '../assets/gallery_6.png'
 import './Process.css'
 
 const Process = () => {
@@ -50,14 +50,14 @@ const Process = () => {
       title: 'Professional Installation',
       description: 'Our certified technicians carry out the installation with minimal disruption to your daily routine.',
       buttonText: 'Contact Us →',
-      image: installationImage
+      image: gallery6
     },
     {
       number: '5',
       title: 'Aftercare & Support',
       description: 'Ongoing maintenance and support to ensure your energy system performs optimally for years to come.',
       buttonText: 'Get Support →',
-      image: aftercareImage
+      image: gallery3
     }
   ]
 
