@@ -74,13 +74,13 @@ const About = () => {
     },
     {
       name: 'Tom Marshall',
-      role: 'Managing Director',
+      role: 'Director',
       image: 'TM',
       linkedinUrl: 'https://www.linkedin.com/in/tombat/'
     },
     {
       name: 'Matt Gavin',
-      role: 'Account Executive',
+      role: 'Director',
       image: 'MG',
       linkedinUrl: 'https://www.linkedin.com/in/matt-margav-660a54112/'
     }
