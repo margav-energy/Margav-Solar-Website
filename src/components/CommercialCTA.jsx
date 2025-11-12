@@ -246,7 +246,8 @@ const CommercialCTA = () => {
           <ScrollAnimation animation="fadeInUp" delay={0}>
             <div className="commercial-cta-content">
               <p className="commercial-cta-text">
-                Did you know you can access up to 50% funding on solar panels for commercial properties?
+                {/* Did you know you can access up to 50% funding on solar panels for commercial properties? */}
+                Did you know we can access up to 50% funding towards your commercial solar panel installs?
               </p>
               <button className="btn btn-enquire" onClick={openModal}>
                 Enquire here!
