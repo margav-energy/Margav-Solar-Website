@@ -6,6 +6,7 @@ import Services from '../components/Services'
 // import ProductsSection from '../components/Products'
 // import Statistics from '../components/Statistics'
 import SavingsCalculator from '../components/SavingsCalculator'
+import CommercialCTA from '../components/CommercialCTA'
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
       {/* <ProductsSection /> */}
       {/* <Statistics /> */}
       <SavingsCalculator />
+      <CommercialCTA />
     </>
   )
 }

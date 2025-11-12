@@ -68,6 +68,40 @@ VITE_EMAILJS_PUBLIC_KEY=your_public_key_here
    - Request Quote: `template_00uncww`
    - Schedule/Contact: `template_gcy68b5`
 
+#### Commercial CTA Form
+
+The Commercial CTA form uses **Lucy's EmailJS account** to send emails to `lucy@margav.energy` with CC to `sales@margav.energy`.
+
+1. **EmailJS Account Setup:**
+   - Use Lucy's EmailJS account (already configured)
+   - Service ID: `service_rfga4ug`
+   - Template ID: `template_c5aeqg3`
+   - Public Key: `9fjvy6g6-1Zk9_pqK`
+
+2. **EmailJS Template Configuration:**
+   - **To Email**: `lucy@margav.energy`
+   - **CC Email**: `sales@margav.energy` (configure this in the EmailJS template settings)
+   - **Subject**: "New Commercial Enquiry from {{company_name}}"
+   - **From Name**: "MarGav Solar Website"
+
+3. **Optional - Override in `.env` file:**
+```env
+# Commercial CTA - Lucy Account (optional, defaults are already set)
+VITE_EMAILJS_COMMERCIAL_LUCY_SERVICE_ID=service_rfga4ug
+VITE_EMAILJS_COMMERCIAL_LUCY_TEMPLATE_ID=template_c5aeqg3
+VITE_EMAILJS_COMMERCIAL_LUCY_PUBLIC_KEY=9fjvy6g6-1Zk9_pqK
+```
+
+4. **Template Variables Available:**
+   - `{{name}}` - Customer name
+   - `{{company_name}}` - Company name
+   - `{{email}}` - Customer email
+   - `{{telephone}}` - Customer telephone number
+   - `{{preferred_time}}` - Preferred contact time (8am - 11am, 11am - 2pm, or 2pm - 6pm)
+   - `{{timestamp}}` - Submission timestamp
+   - `{{source}}` - Source identifier
+   - `{{cc_email}}` - CC email address (sales@margav.energy)
+
 #### Troubleshooting EmailJS Errors
 
 **Error 412 - Gmail API Invalid Grant:**
