@@ -121,7 +121,7 @@ const About = () => {
             </div>
           </ScrollAnimation>
           <div className="about-hero-carousel">
-            <ImageCarousel images={heroImages} autoScroll={true} interval={3000} />
+            <ImageCarousel images={heroImages} autoScroll={true} interval={3100} />
           </div>
         </div>
       </div>
