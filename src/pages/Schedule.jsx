@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet'
 import emailjs from '@emailjs/browser'
 import ScrollAnimation from '../components/ScrollAnimation'
+import PromoBanner from '../components/PromoBanner'
 import { EMAILJS_SERVICE_ID, EMAILJS_PUBLIC_KEY, EMAILJS_SCHEDULE_TEMPLATE_ID } from '../config/emailjs'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
@@ -259,6 +260,7 @@ const Schedule = () => {
 
   return (
     <section className="schedule-page">
+      <PromoBanner variant="no-margin" />
       <div className="schedule-hero-banner">
         <div className="container">
           <ScrollAnimation animation="fadeInUp" delay={0}>

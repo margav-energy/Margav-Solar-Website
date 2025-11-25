@@ -1,11 +1,13 @@
 import React from 'react'
 import ProductsSection from '../components/Products'
 import ScrollAnimation from '../components/ScrollAnimation'
+import PromoBanner from '../components/PromoBanner'
 import './ProductsPage.css'
 
 const Products = () => {
   return (
     <section className="products-page">
+      <PromoBanner />
       <div className="products-hero-banner">
         <div className="container">
           <ScrollAnimation animation="fadeInUp" delay={0}>
