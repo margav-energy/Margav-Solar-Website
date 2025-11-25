@@ -276,9 +276,6 @@ const RequestQuotePage = () => {
   }
 
   const visibleFields = getVisibleFields()
-  const hasSolar = formData.services.includes('solar')
-  const hasBattery = formData.services.includes('battery')
-  const hasEv = formData.services.includes('ev')
 
   return (
     <section className="request-quote-page">
@@ -450,46 +447,6 @@ const RequestQuotePage = () => {
                     </select>
                   </div>
                 )}
-              </>
-            )}
-
-            {/* Solar Panel Specific Fields */}
-            {hasSolar && (
-              <>
-                <div className="form-group">
-                  <label className="form-label">Roof Type</label>
-                  <select
-                    name="roofType"
-                    value={formData.roofType}
-                    onChange={handleChange}
-                    className="form-input"
-                  >
-                    <option value="">Select roof type</option>
-                    <option value="tiled">Tiled</option>
-                    <option value="slate">Slate</option>
-                    <option value="metal">Metal</option>
-                    <option value="flat">Flat</option>
-                    <option value="other">Other</option>
-                  </select>
-                </div>
-
-                <div className="form-group">
-                  <label className="form-label">Roof Orientation</label>
-                  <select
-                    name="roofOrientation"
-                    value={formData.roofOrientation}
-                    onChange={handleChange}
-                    className="form-input"
-                  >
-                    <option value="">Select orientation</option>
-                    <option value="south">South</option>
-                    <option value="south-east">South-East</option>
-                    <option value="south-west">South-West</option>
-                    <option value="east">East</option>
-                    <option value="west">West</option>
-                    <option value="north">North</option>
-                  </select>
-                </div>
               </>
             )}
 

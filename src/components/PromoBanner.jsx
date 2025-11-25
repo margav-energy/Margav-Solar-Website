@@ -20,10 +20,22 @@ const PromoBanner = ({ variant = 'default' }) => {
             <span className="promo-message">
               Free battery storage with every solar installation this December!
             </span>
+            <span className="promo-badge">DECEMBER PROMO</span>
+            <span className="promo-message">
+              Free battery storage with every solar installation this December!
+            </span>
+            <span className="promo-badge">DECEMBER PROMO</span>
+            <span className="promo-message">
+              Free battery storage with every solar installation this December!
+            </span>
+            <span className="promo-badge">DECEMBER PROMO</span>
+            <span className="promo-message">
+              Free battery storage with every solar installation this December!
+            </span>
           </div>
         </div>
         <Link to="/schedule" className="promo-cta">
-          Get Your Quote →
+          Get Your Quote Now!
         </Link>
       </div>
     </div>
