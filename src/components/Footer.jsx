@@ -179,9 +179,19 @@ const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="footer-bottom">
-          <p className="footer-copyright">
-            © {new Date().getFullYear()} <span className="text-gradient">MarGav</span> <span style={{ color: 'var(--color-blue)' }}>Solar</span>. All rights reserved.
-          </p>
+          <div className="footer-bottom-left">
+            <p className="footer-copyright">
+              © {new Date().getFullYear()} <span className="text-gradient">MarGav</span> <span style={{ color: 'var(--color-blue)' }}>Solar</span>. All rights reserved.
+            </p>
+            <div className="footer-company-info">
+              <p className="footer-company-details">
+                MargavSolar is a trading style of Margav Renewables Ltd
+              </p>
+              <p className="footer-company-details">
+                Margav Renewables Ltd | Company Number: 12580649 | Registered in England & Wales
+              </p>
+            </div>
+          </div>
           <div className="footer-policies">
             <a href="#privacy" className="footer-policy-link">Privacy Policy</a>
             <span className="footer-policy-separator">|</span>
