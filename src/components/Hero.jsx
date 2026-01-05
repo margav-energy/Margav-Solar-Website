@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import heroImage from '../assets/hero.png'
-import PromoBanner from './PromoBanner'
 import './Hero.css'
 
 const Hero = () => {
@@ -9,9 +8,7 @@ const Hero = () => {
   console.log('Hero image path:', heroImage)
   
   return (
-    <>
-      <PromoBanner />
-      <section className="hero" id="home" style={{ scrollMarginTop: '80px' }}>
+    <section className="hero" id="home" style={{ scrollMarginTop: '80px' }}>
         <div className="hero-background">
           <img 
             src={heroImage} 
@@ -37,7 +34,6 @@ const Hero = () => {
           </div>
         </div>
       </section>
-    </>
   )
 }
 

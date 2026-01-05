@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import ScrollAnimation from '../components/ScrollAnimation'
-import PromoBanner from '../components/PromoBanner'
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
 import './RequestQuotePage.css'
 
@@ -279,7 +278,6 @@ const RequestQuotePage = () => {
 
   return (
     <section className="request-quote-page">
-      <PromoBanner variant="no-margin" />
       <div className="quote-hero-banner">
         <div className="container">
           <ScrollAnimation animation="fadeInUp" delay={0}>
