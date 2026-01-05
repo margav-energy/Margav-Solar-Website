@@ -1,18 +1,18 @@
-import React from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Favicon from './components/Favicon'
-import ScrollToTop from './components/ScrollToTop'
-import Home from './pages/Home'
-import About from './pages/About'
-import Work from './pages/Work'
-import Products from './pages/Products'
-import RequestQuotePage from './pages/RequestQuotePage'
-import Schedule from './pages/Schedule'
-import Blog from './pages/Blog'
-import Contact from './pages/Contact'
-import './styles/App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Favicon from "./components/Favicon";
+import ScrollToTop from "./components/ScrollToTop";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Work from "./pages/Work";
+import Products from "./pages/Products";
+import RequestQuotePage from "./pages/RequestQuotePage";
+import Schedule from "./pages/Schedule";
+import Blog from "./pages/Blog";
+import Contact from "./pages/Contact";
+import "./styles/App.css";
 
 function App() {
   return (
@@ -36,8 +36,7 @@ function App() {
         <Footer />
       </div>
     </Router>
-  )
+  );
 }
 
-export default App
-
+export default App;
