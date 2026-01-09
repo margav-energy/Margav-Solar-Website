@@ -12,6 +12,8 @@ import RequestQuotePage from "./pages/RequestQuotePage";
 import Schedule from "./pages/Schedule";
 import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
+import Careers from "./pages/Careers";
+import JobListing from "./pages/JobListing";
 import "./styles/App.css";
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/careers/job/:id" element={<JobListing />} />
           </Routes>
         </main>
         <Footer />

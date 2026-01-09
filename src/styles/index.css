@@ -25,6 +25,10 @@
   color: transparent;
 }
 
+.text-black {
+  color: var(--color-black) !important;
+}
+
 
 * {
   margin: 0;
