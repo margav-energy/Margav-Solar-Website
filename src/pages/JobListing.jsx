@@ -36,17 +36,15 @@ const jobListings = [
       'Stay up to date with product knowledge, industry trends, and incentives'
     ],
     benefits: [
-      'Competitive base salary + uncapped commission structure',
+      'Competitive base salary + On target commission (uncapped)',
       'Full training and ongoing professional development',
       'Career growth opportunities within a growing green energy company',
       'Supportive and energetic team culture',
       'The chance to make a real impact on the environment',
       'Company pension',
-      'Free parking',
-      'On-site parking',
-      'Casual dress'
+      'On-site parking'
     ],
-    postedDate: new Date().toISOString().split('T')[0]
+    postedDate: '2026-01-07'
   }
 ]
 
@@ -57,6 +55,7 @@ const JobListing = () => {
     name: '',
     email: '',
     phone: '',
+    notes: '',
     interestConfirmed: false
   })
   const [errors, setErrors] = useState({})
@@ -148,6 +147,7 @@ const JobListing = () => {
         applicant_email: formData.email,
         applicant_name: formData.name,
         applicant_phone: formData.phone,
+        applicant_notes: formData.notes || 'No notes provided',
         job_title: job?.title || 'General Application',
         interest_confirmed: formData.interestConfirmed ? 'Yes' : 'No',
         timestamp: new Date().toLocaleString('en-GB', { 
@@ -184,6 +184,7 @@ const JobListing = () => {
         name: '',
         email: '',
         phone: '',
+        notes: '',
         interestConfirmed: false
       })
       
@@ -316,6 +317,7 @@ const JobListing = () => {
               name: '',
               email: '',
               phone: '',
+              notes: '',
               interestConfirmed: false
             })
           }
@@ -387,6 +389,20 @@ const JobListing = () => {
                   required
                 />
                 {errors.phone && <span className="careers-error-message">{errors.phone}</span>}
+              </div>
+
+              <div className="careers-form-group">
+                <label className="careers-form-label">
+                  Notes (Optional)
+                </label>
+                <textarea
+                  name="notes"
+                  value={formData.notes}
+                  onChange={handleFormChange}
+                  placeholder="Add any additional notes or information you'd like to share..."
+                  className="careers-form-input"
+                  rows="4"
+                />
               </div>
 
               <div className="careers-form-group">
