@@ -95,7 +95,7 @@ const Careers = () => {
         'Maintain accurate records of sales activities and customer interactions'
       ],
       benefits: [
-        'Competitive base salary + On target commission (uncapped)',
+        'Base salary + Commission',
         'Full training and ongoing professional development',
         'Career growth opportunities within a growing green energy company',
         'Supportive and energetic team culture',
@@ -104,6 +104,40 @@ const Careers = () => {
         'Travel allowance and expenses covered'
       ],
       postedDate: '2026-02-03'
+    },
+    {
+      id: 4,
+      title: 'Gas Engineer',
+      category: 'installation',
+      location: 'UK-wide',
+      type: 'Full-time',
+      description: 'Margav Energy is a forward-thinking renewable energy company supporting the UK\'s transition to cleaner, more sustainable power. As a Gas Engineer, you will be part of a growing team delivering innovative energy solutions that combine traditional gas engineering with modern renewable technologies. With projects across the UK, this role offers the opportunity to work on varied installations while contributing directly to the future of energy.',
+      requirements: [
+        'Fully qualified Gas Safe registered engineer',
+        'Experience in domestic and/or commercial gas installations',
+        'Knowledge or hands-on experience with renewable energy systems (desirable)',
+        'Willingness and flexibility to travel nationwide',
+        'Strong problem-solving skills and a proactive, professional attitude',
+        'Own tools (beneficial but not essential)'
+      ],
+      responsibilities: [
+        'Install, service, and maintain gas systems across domestic and/or commercial sites',
+        'Integrate gas systems with renewable and hybrid technologies, including heat pumps',
+        'Support the delivery of innovative, low-carbon energy solutions',
+        'Ensure all work complies with safety regulations and industry standards',
+        'Work closely with project teams, site managers, and customers',
+        'Travel to project locations across the UK as required'
+      ],
+      benefits: [
+        'Competitive salary, based on experience',
+        'Ongoing training in renewable energy and emerging technologies',
+        'Career development opportunities within a growing green energy company',
+        'Supportive, innovative, and future-focused team environment',
+        'Company pension scheme',
+        'On-site parking',
+        'Monday to Friday day shift'
+      ],
+      postedDate: '2026-02-04'
     }
   ]
 
