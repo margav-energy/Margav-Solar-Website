@@ -45,6 +45,42 @@ const jobListings = [
       'On-site parking'
     ],
     postedDate: '2026-01-07'
+  },
+  {
+    id: 3,
+    title: 'Field Sales Representative',
+    category: 'sales',
+    location: 'Field-based, UK',
+    type: 'Full-time',
+    description: 'Join Margav Energy as a Field Sales Representative and be at the forefront of the renewable energy revolution! This is an exciting opportunity for a driven sales professional to work directly with customers in the field, helping them transition to sustainable energy solutions. As a Field Sales Representative, you will be responsible for identifying new sales opportunities, building strong client relationships, and meeting or exceeding sales targets. You\'ll work independently in the field, conducting sales calls, giving product demonstrations, and managing customer accounts while collaborating with our sales team to develop and execute effective sales strategies.',
+    requirements: [
+      'Proven track record in sales (experience in solar/renewable energy, real estate, insurance, or home improvement sales is a plus)',
+      'Strong communication, negotiation, and interpersonal skills',
+      'Self-motivated, entrepreneurial, and results-oriented',
+      'Ability to work independently and manage your own schedule',
+      'Reliable transportation and willingness to travel within the assigned territory',
+      'Basic understanding of renewable energy is helpful, but full training will be provided'
+    ],
+    responsibilities: [
+      'Identify new sales opportunities and build client relationships',
+      'Conduct sales calls and give product demonstrations to potential customers',
+      'Manage customer accounts and maintain customer satisfaction',
+      'Meet or exceed sales targets and KPIs',
+      'Collaborate with the sales team to develop and execute effective sales strategies',
+      'Attend industry events to network and generate leads',
+      'Stay updated on market trends and competitor activities',
+      'Maintain accurate records of sales activities and customer interactions'
+    ],
+    benefits: [
+      'Competitive base salary + On target commission (uncapped)',
+      'Full training and ongoing professional development',
+      'Career growth opportunities within a growing green energy company',
+      'Supportive and energetic team culture',
+      'The chance to make a real impact on the environment',
+      'Company pension',
+      'Travel allowance and expenses covered'
+    ],
+    postedDate: '2026-02-03'
   }
 ]
 
