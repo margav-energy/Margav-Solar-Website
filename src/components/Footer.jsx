@@ -71,17 +71,6 @@ const Footer = () => {
             </nav>
           </div>
 
-          {/* Services Section */}
-          <div className="footer-section">
-            <h4 className="footer-heading">Services</h4>
-            <nav className="footer-nav">
-              <Link to="/products">Solar Panels</Link>
-              <Link to="/products">Battery Storage</Link>
-              <Link to="/products">Energy Consultancy</Link>
-              <Link to="/products">Maintenance</Link>
-            </nav>
-          </div>
-
           {/* Right Section: Newsletter & Social */}
           <div className="footer-section footer-right">
             <div className="footer-newsletter">
