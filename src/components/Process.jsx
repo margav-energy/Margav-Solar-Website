@@ -34,7 +34,7 @@ const Process = () => {
     {
       number: '2',
       title: 'Property Assessment & Quotation',
-      description: 'Our experts conduct a thorough assessment of your property and provide a detailed, personalized quotation.',
+      description: 'Our experts conduct a thorough assessment of your property and provide a detailed, personalised quotation.',
       buttonText: 'Learn More →',
       image: assessmentImage
     },

@@ -9,7 +9,7 @@ const FeaturesSection = () => {
     {
       number: '01',
       title: 'Smart Home Systems',
-      description: 'Discover how our smart systems optimize energy use and reduce costs automatically.',
+      description: 'Discover how our smart systems optimise energy use and reduce costs automatically.',
       icon: '⚡'
     },
     {

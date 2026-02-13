@@ -43,7 +43,7 @@ const Footer = () => {
             <div className="footer-contact-info">
               <div className="footer-contact-item">
                 <span className="footer-icon">📍</span>
-                <span>7-8, Kimberley Business Park, Kimberley Way, Rugeley WS15 1RE</span>
+                <span>Unit 7-8, Kimberley Business Park, Kimberley Way, Rugeley WS15 1RE</span>
               </div>
               <div className="footer-contact-item">
                 <span className="footer-icon">📞</span>

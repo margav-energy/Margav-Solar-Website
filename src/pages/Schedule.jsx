@@ -277,7 +277,7 @@ const Schedule = () => {
             <ScrollAnimation animation="fadeInUp" delay={200}>
               <h2 className="contact-info-title">Contact Information</h2>
               <p className="contact-info-description">
-                We're here to help you make the switch to renewable energy. Get in touch with our expert team for personalized advice and support.
+                We're here to help you make the switch to renewable energy. Get in touch with our expert team for personalised advice and support.
               </p>
 
               <div className="contact-details">
@@ -286,7 +286,7 @@ const Schedule = () => {
                   <div className="contact-detail-content">
                     <h4 className="contact-detail-label">Address</h4>
                     <p className="contact-detail-text">
-                      7-8, Kimberley Business Park<br />
+                      Unit 7-8, Kimberley Business Park<br />
                       Kimberley Way, Rugeley WS15 1RE<br />
                       United Kingdom
                     </p>

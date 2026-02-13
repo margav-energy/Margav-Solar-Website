@@ -28,7 +28,7 @@ const SavingsCalculator = () => {
     },
     {
       icon: '📊',
-      title: 'Customized Report',
+      title: 'Customised Report',
       description: 'Receive a detailed breakdown tailored to your specific home and energy needs.'
     },
     {

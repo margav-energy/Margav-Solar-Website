@@ -106,8 +106,8 @@ const CookieBanner = () => {
               <div className="cookie-banner-text">
                 <h3 className="cookie-banner-title">🍪 We Use Cookies</h3>
                 <p className="cookie-banner-description">
-                  We use cookies to enhance your browsing experience, analyze site traffic, and personalize content. 
-                  By clicking "Accept All", you consent to our use of cookies. You can also choose to customize your preferences or reject non-essential cookies.
+                  We use cookies to enhance your browsing experience, analyse site traffic, and personalise content. 
+                  By clicking "Accept All", you consent to our use of cookies. You can also choose to customise your preferences or reject non-essential cookies.
                 </p>
                 <p className="cookie-banner-links">
                   <Link to="/cookies" className="cookie-banner-link">Learn more in our Cookie Policy</Link>
@@ -120,7 +120,7 @@ const CookieBanner = () => {
                   className="cookie-btn cookie-btn-secondary"
                   onClick={() => setShowSettings(true)}
                 >
-                  Customize
+                  Customise
                 </button>
                 <button 
                   className="cookie-btn cookie-btn-secondary"

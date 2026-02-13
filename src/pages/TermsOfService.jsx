@@ -3,11 +3,11 @@ import ScrollAnimation from '../components/ScrollAnimation'
 import './LegalPage.css'
 
 const TermsOfService = () => {
-  const lastUpdated = '2024-01-15'
+  const lastUpdated = '10/02/2026'
   const companyName = 'Margav Renewables Ltd'
   const tradingName = 'MarGav Solar'
   const companyNumber = '12580649'
-  const address = '7-8, Kimberley Business Park, Kimberley Way, Rugeley WS15 1RE'
+  const address = 'Unit 7-8, Kimberley Business Park, Kimberley Way, Rugeley WS15 1RE'
   const email = 'sales@margav.energy'
   const phone = '01889 256069'
 
@@ -103,7 +103,8 @@ const TermsOfService = () => {
               <ul>
                 <li>A deposit may be required to secure your installation date</li>
                 <li>Balance payment is typically due upon completion and sign-off</li>
-                <li>We accept payment by bank transfer, cheque, or card (as agreed)</li>
+                <li>We typically accept payment by card</li>
+                <li>Finance plans may be available, subject to eligibility and approval by our finance provider. Full terms will be provided where applicable</li>
                 <li>Late payment may incur interest charges as permitted by law</li>
               </ul>
             </section>
@@ -149,12 +150,12 @@ const TermsOfService = () => {
                 To the maximum extent permitted by law:
               </p>
               <ul>
-                <li>Our total liability for any claim shall not exceed the value of the services provided</li>
-                <li>We are not liable for indirect, consequential, or special damages</li>
-                <li>We are not liable for delays due to circumstances beyond our control</li>
+                <li>Our total liability for any claim (other than liability for death or personal injury caused by our negligence) shall not exceed the value of the services provided</li>
+                <li>We shall not be liable for indirect, consequential, or special damages</li>
+                <li>We shall not be liable for delays or failure to perform due to circumstances beyond our reasonable control</li>
               </ul>
               <p>
-                Nothing in these Terms excludes or limits our liability for death or personal injury caused by negligence, fraud, or any other liability that cannot be excluded by law.
+                Nothing in these Terms excludes or limits our liability for death or personal injury caused by negligence, fraud, or any other liability which cannot be excluded or limited by law.
               </p>
             </section>
 
@@ -186,35 +187,28 @@ const TermsOfService = () => {
             </section>
 
             <section className="legal-section">
-              <h2>12. Third-Party Links</h2>
-              <p>
-                Our website may contain links to third-party websites. We are not responsible for the content, privacy policies, or practices of third-party websites. Your use of third-party websites is at your own risk.
-              </p>
-            </section>
-
-            <section className="legal-section">
-              <h2>13. Force Majeure</h2>
+              <h2>12. Force Majeure</h2>
               <p>
                 We are not liable for any failure to perform our obligations due to circumstances beyond our reasonable control, including but not limited to natural disasters, pandemics, government actions, or supplier failures.
               </p>
             </section>
 
             <section className="legal-section">
-              <h2>14. Governing Law</h2>
+              <h2>13. Governing Law</h2>
               <p>
                 These Terms are governed by and construed in accordance with the laws of England and Wales. Any disputes will be subject to the exclusive jurisdiction of the courts of England and Wales.
               </p>
             </section>
 
             <section className="legal-section">
-              <h2>15. Changes to Terms</h2>
+              <h2>14. Changes to Terms</h2>
               <p>
                 We reserve the right to modify these Terms at any time. Changes will be effective immediately upon posting on this page. Your continued use of our website or services after changes are posted constitutes acceptance of the modified Terms.
               </p>
             </section>
 
             <section className="legal-section">
-              <h2>16. Contact Information</h2>
+              <h2>15. Contact Information</h2>
               <div className="legal-contact-info">
                 <p><strong>{tradingName}</strong></p>
                 <p>Trading style of {companyName}</p>
