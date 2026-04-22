@@ -47,6 +47,15 @@ const Header = () => {
           <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`} onClick={closeMenu}>Careers</Link>
           <Link to="/request-quote" className={`nav-link ${location.pathname === '/request-quote' ? 'active' : ''}`} onClick={closeMenu}>Request a Quote</Link>
           <Link to="/finance" className={`nav-link ${location.pathname === '/finance' ? 'active' : ''}`} onClick={closeMenu}>Finance Calculator</Link>
+          <a
+            href="https://ideal4finance.com/retail-hi/apply/margav"
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            Apply for finance
+          </a>
           <Link to="/schedule" className={`nav-button schedule-button ${location.pathname === '/schedule' ? 'active' : ''}`} onClick={closeMenu}>
             Schedule →
           </Link>

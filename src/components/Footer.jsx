@@ -66,6 +66,13 @@ const Footer = () => {
               {/* <Link to="/products">Products</Link> */}
               <Link to="/careers">Careers</Link>
               <Link to="/request-quote">Request a Quote</Link>
+              <a
+                href="https://ideal4finance.com/retail-hi/apply/margav"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apply for finance
+              </a>
               <Link to="/schedule">Schedule →</Link>
             </nav>
           </div>
