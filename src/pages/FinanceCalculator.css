@@ -1,0 +1,157 @@
+.finance-page {
+  background: #f5f6f8;
+  min-height: calc(100vh - 120px);
+  margin-top: 88px;
+  padding-top: 24px;
+}
+
+.finance-card {
+  background: #ffffff;
+  border: 1px solid #dcdfe4;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 28px;
+  max-width: 1050px;
+  margin: 0 auto;
+}
+
+.finance-header h1 {
+  margin: 0 0 8px;
+  font-size: clamp(28px, 3vw, 42px);
+}
+
+.finance-header p {
+  margin: 0 0 20px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.apr-bar {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid #2f8f6b;
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.apr-segment {
+  text-align: center;
+  padding: 8px 10px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.apr-toggle-btn {
+  border: 0;
+  cursor: pointer;
+  background: #fff;
+  color: #2f8f6b;
+}
+
+.apr-active-light {
+  background: #ecf8f1;
+  color: #2f8f6b;
+}
+
+.apr-active-dark {
+  background: #1f9d66;
+  color: #fff;
+}
+
+.finance-fields {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.finance-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #222;
+  font-weight: 600;
+}
+
+.finance-label input,
+.finance-label select {
+  height: 42px;
+  border: 1px solid #c9ced6;
+  border-radius: 3px;
+  padding: 0 12px;
+  font-size: 15px;
+  color: #222;
+  background: #fff;
+}
+
+.finance-label input:focus,
+.finance-label select:focus {
+  outline: none;
+  border-color: #2f8f6b;
+  box-shadow: 0 0 0 2px rgba(31, 157, 102, 0.15);
+}
+
+.finance-mode {
+  text-align: right;
+  margin: 8px 0 6px;
+  color: #333;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.finance-results {
+  border-top: 1px solid #dce0e6;
+  margin-top: 8px;
+}
+
+.finance-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e8ebf0;
+  padding: 14px 0;
+  font-size: 22px;
+}
+
+.finance-row span {
+  color: #333;
+}
+
+.finance-row strong {
+  color: #222;
+}
+
+.finance-row-apr strong {
+  color: #1f9d66;
+}
+
+.finance-disclaimer {
+  margin-top: 16px;
+  font-size: 15px;
+  color: #2f2f2f;
+  line-height: 1.45;
+}
+
+.finance-disclaimer p {
+  margin: 0 0 12px;
+}
+
+@media (max-width: 900px) {
+  .finance-page {
+    margin-top: 78px;
+    padding-top: 16px;
+  }
+
+  .finance-fields {
+    grid-template-columns: 1fr;
+  }
+
+  .finance-row {
+    font-size: 18px;
+  }
+
+  .finance-mode {
+    font-size: 18px;
+  }
+}

@@ -44,18 +44,9 @@ const Header = () => {
           <Link to="/about" className={`nav-link ${location.pathname === '/about' ? 'active' : ''}`} onClick={closeMenu}>About</Link>
           {/* <Link to="/work" className={`nav-link ${location.pathname === '/work' ? 'active' : ''}`} onClick={closeMenu}>Work</Link> */}
           {/* <Link to="/products" className={`nav-link ${location.pathname === '/products' ? 'active' : ''}`} onClick={closeMenu}>Products</Link> */}
-          <Link to="/blog" className={`nav-link ${location.pathname === '/blog' ? 'active' : ''}`} onClick={closeMenu}>Blog</Link>
           <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`} onClick={closeMenu}>Careers</Link>
           <Link to="/request-quote" className={`nav-link ${location.pathname === '/request-quote' ? 'active' : ''}`} onClick={closeMenu}>Request a Quote</Link>
-          <a
-            href="https://ideal4finance.com/retail/calculator/margav"
-            className="nav-link"
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={closeMenu}
-          >
-            Apply for finance
-          </a>
+          <Link to="/finance" className={`nav-link ${location.pathname === '/finance' ? 'active' : ''}`} onClick={closeMenu}>Finance Calculator</Link>
           <Link to="/schedule" className={`nav-button schedule-button ${location.pathname === '/schedule' ? 'active' : ''}`} onClick={closeMenu}>
             Schedule →
           </Link>

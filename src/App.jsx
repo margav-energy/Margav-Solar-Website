@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Favicon from "./components/Favicon";
@@ -13,10 +13,10 @@ import Work from "./pages/Work";
 import Products from "./pages/Products";
 import RequestQuotePage from "./pages/RequestQuotePage";
 import Schedule from "./pages/Schedule";
-import Blog from "./pages/Blog";
 import Contact from "./pages/Contact";
 import Careers from "./pages/Careers";
 import JobListing from "./pages/JobListing";
+import FinanceCalculator from "./pages/FinanceCalculator";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
@@ -40,7 +40,9 @@ function App() {
             <Route path="/products" element={<Products />} />
             <Route path="/request-quote" element={<RequestQuotePage />} />
             <Route path="/schedule" element={<Schedule />} />
-            <Route path="/blog" element={<Blog />} />
+            <Route path="/finance" element={<FinanceCalculator />} />
+            <Route path="/blog" element={<Navigate to="/" replace />} />
+            <Route path="/blog/*" element={<Navigate to="/" replace />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/careers/job/:id" element={<JobListing />} />

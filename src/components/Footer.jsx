@@ -64,7 +64,6 @@ const Footer = () => {
               <Link to="/about">About</Link>
               {/* <Link to="/work">Work</Link> */}
               {/* <Link to="/products">Products</Link> */}
-              <Link to="/blog">Blog</Link>
               <Link to="/careers">Careers</Link>
               <Link to="/request-quote">Request a Quote</Link>
               <Link to="/schedule">Schedule →</Link>
