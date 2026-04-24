@@ -12,6 +12,7 @@ const TERM_OPTIONS = [
 
 const INTEREST_FREE_APR = 0;
 const INTEREST_BEARING_APR = 9.9;
+const PREMIUM_APR = 14.9;
 const ONE_YEAR_TERM = 12;
 
 const formatGBP = (value) =>
@@ -38,6 +39,8 @@ const calculateMonthlyPayment = (principal, apr, termMonths) => {
   const factor = Math.pow(1 + monthlyRate, termMonths);
   return (principal * monthlyRate * factor) / (factor - 1);
 };
+
+const APR_OPTIONS = [INTEREST_FREE_APR, INTEREST_BEARING_APR, PREMIUM_APR];
 
 const FinanceCalculator = () => {
   const [selectedApr, setSelectedApr] = useState(INTEREST_FREE_APR);
@@ -87,23 +90,27 @@ const FinanceCalculator = () => {
           </div>
 
           <div className="apr-bar" role="group" aria-label="APR selection">
-            <button
-              type="button"
-              className={`apr-segment apr-toggle-btn ${selectedApr === INTEREST_FREE_APR ? "apr-active-light" : ""}`}
-              onClick={() => {
-                setSelectedApr(INTEREST_FREE_APR);
-                setTermMonthsInput(String(ONE_YEAR_TERM));
-              }}
-            >
-              {INTEREST_FREE_APR.toFixed(2)}% APR
-            </button>
-            <button
-              type="button"
-              className={`apr-segment apr-toggle-btn ${selectedApr === INTEREST_BEARING_APR ? "apr-active-dark" : ""}`}
-              onClick={() => setSelectedApr(INTEREST_BEARING_APR)}
-            >
-              {INTEREST_BEARING_APR.toFixed(2)}% APR
-            </button>
+            {APR_OPTIONS.map((aprOption) => (
+              <button
+                key={aprOption}
+                type="button"
+                className={`apr-segment apr-toggle-btn ${
+                  selectedApr === aprOption
+                    ? aprOption === INTEREST_FREE_APR
+                      ? "apr-active-light"
+                      : "apr-active-dark"
+                    : ""
+                }`}
+                onClick={() => {
+                  setSelectedApr(aprOption);
+                  if (aprOption === INTEREST_FREE_APR) {
+                    setTermMonthsInput(String(ONE_YEAR_TERM));
+                  }
+                }}
+              >
+                {aprOption.toFixed(2)}% APR
+              </button>
+            ))}
           </div>
 
           <div className="finance-fields">
