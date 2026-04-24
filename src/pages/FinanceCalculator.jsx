@@ -11,7 +11,7 @@ const TERM_OPTIONS = [
 ];
 
 const INTEREST_FREE_APR = 0;
-const INTEREST_BEARING_APR = 11.9;
+const INTEREST_BEARING_APR = 9.9;
 const ONE_YEAR_TERM = 12;
 
 const formatGBP = (value) =>
