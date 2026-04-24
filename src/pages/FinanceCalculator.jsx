@@ -8,12 +8,18 @@ const TERM_OPTIONS = [
   { value: 48, label: "48 months (4 years)" },
   { value: 60, label: "60 months (5 years)" },
   { value: 120, label: "120 months (10 years)" },
+  { value: 180, label: "180 months (15 years)" },
 ];
 
 const INTEREST_FREE_APR = 0;
 const INTEREST_BEARING_APR = 9.9;
 const PREMIUM_APR = 14.9;
 const ONE_YEAR_TERM = 12;
+const APR_TERM_MAP = {
+  [INTEREST_FREE_APR]: [12],
+  [INTEREST_BEARING_APR]: [24, 36, 48, 180],
+  [PREMIUM_APR]: [60, 120],
+};
 
 const formatGBP = (value) =>
   new Intl.NumberFormat("en-GB", {
@@ -46,12 +52,10 @@ const FinanceCalculator = () => {
   const [selectedApr, setSelectedApr] = useState(INTEREST_FREE_APR);
   const [purchasePriceInput, setPurchasePriceInput] = useState("");
   const [depositInput, setDepositInput] = useState("");
-  const [termMonthsInput, setTermMonthsInput] = useState("");
+  const [termMonthsInput, setTermMonthsInput] = useState(String(ONE_YEAR_TERM));
 
   const availableTermOptions =
-    selectedApr === INTEREST_FREE_APR
-      ? TERM_OPTIONS.filter((option) => option.value === ONE_YEAR_TERM)
-      : TERM_OPTIONS;
+    TERM_OPTIONS.filter((option) => APR_TERM_MAP[selectedApr]?.includes(option.value));
 
   const calculations = useMemo(() => {
     const purchasePrice = parseAmount(purchasePriceInput);
@@ -103,9 +107,11 @@ const FinanceCalculator = () => {
                 }`}
                 onClick={() => {
                   setSelectedApr(aprOption);
-                  if (aprOption === INTEREST_FREE_APR) {
-                    setTermMonthsInput(String(ONE_YEAR_TERM));
-                  }
+                  const nextTerms = APR_TERM_MAP[aprOption] || [];
+                  const nextValue = Number(termMonthsInput);
+                  setTermMonthsInput(
+                    nextTerms.includes(nextValue) ? String(nextValue) : String(nextTerms[0] || "")
+                  );
                 }}
               >
                 {aprOption.toFixed(2)}% APR
