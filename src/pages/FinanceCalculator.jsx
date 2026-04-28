@@ -13,12 +13,10 @@ const TERM_OPTIONS = [
 
 const INTEREST_FREE_APR = 0;
 const INTEREST_BEARING_APR = 9.9;
-const PREMIUM_APR = 14.9;
 const ONE_YEAR_TERM = 12;
 const APR_TERM_MAP = {
   [INTEREST_FREE_APR]: [12],
-  [INTEREST_BEARING_APR]: [24, 36, 48, 180],
-  [PREMIUM_APR]: [60, 120],
+  [INTEREST_BEARING_APR]: [24, 36, 48, 60, 120, 180],
 };
 
 const formatGBP = (value) =>
@@ -46,7 +44,7 @@ const calculateMonthlyPayment = (principal, apr, termMonths) => {
   return (principal * monthlyRate * factor) / (factor - 1);
 };
 
-const APR_OPTIONS = [INTEREST_FREE_APR, INTEREST_BEARING_APR, PREMIUM_APR];
+const APR_OPTIONS = [INTEREST_FREE_APR, INTEREST_BEARING_APR];
 
 const FinanceCalculator = () => {
   const [selectedApr, setSelectedApr] = useState(INTEREST_FREE_APR);
