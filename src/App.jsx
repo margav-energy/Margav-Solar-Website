@@ -22,6 +22,16 @@ import TermsOfService from "./pages/TermsOfService";
 import CookiePolicy from "./pages/CookiePolicy";
 import "./styles/App.css";
 
+const BLOG_URL = "https://blog.margavsolar.com";
+
+function ExternalRedirect({ to }) {
+  React.useEffect(() => {
+    window.location.replace(to);
+  }, [to]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
@@ -41,8 +51,8 @@ function App() {
             <Route path="/request-quote" element={<RequestQuotePage />} />
             <Route path="/schedule" element={<Schedule />} />
             <Route path="/finance" element={<FinanceCalculator />} />
-            <Route path="/blog" element={<Navigate to="/" replace />} />
-            <Route path="/blog/*" element={<Navigate to="/" replace />} />
+            <Route path="/blog" element={<ExternalRedirect to={BLOG_URL} />} />
+            <Route path="/blog/*" element={<ExternalRedirect to={BLOG_URL} />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/careers/job/:id" element={<JobListing />} />

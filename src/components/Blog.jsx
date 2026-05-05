@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ScrollAnimation from './ScrollAnimation'
 import './Blog.css'
+
+const BLOG_URL = 'https://blog.margavsolar.com'
 
 const Blog = () => {
   const blogPosts = [
@@ -43,7 +44,14 @@ const Blog = () => {
             <p className="blog-subtitle">
               Stay informed about solar energy trends, tips, and industry updates from our expert team.
             </p>
-            <Link to="/blog" className="btn btn-primary">View All Posts →</Link>
+            <a
+              href={BLOG_URL}
+              className="btn btn-primary"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View All Posts →
+            </a>
           </div>
         </ScrollAnimation>
 
@@ -51,7 +59,12 @@ const Blog = () => {
           {blogPosts.map((post, index) => (
             <ScrollAnimation key={post.id} animation="fadeInUp" delay={index * 150}>
               <article className="blog-card">
-                <Link to={`/blog/${post.id}`} className="blog-card-link">
+                <a
+                  href={BLOG_URL}
+                  className="blog-card-link"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <div className="blog-card-image">
                     <div className={`blog-image-placeholder ${post.image}`}>
                       <div className="blog-image-overlay"></div>
@@ -67,7 +80,7 @@ const Blog = () => {
                     <p className="blog-card-excerpt">{post.excerpt}</p>
                     <span className="blog-card-readmore">Read More →</span>
                   </div>
-                </Link>
+                </a>
               </article>
             </ScrollAnimation>
           ))}

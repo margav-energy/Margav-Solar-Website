@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import logoImage from '../assets/logo.png'
 import './Footer.css'
 
+const BLOG_URL = 'https://blog.margavsolar.com'
+
 const Footer = () => {
   const [email, setEmail] = useState('')
   const [showScrollTop, setShowScrollTop] = useState(false)
@@ -65,6 +67,13 @@ const Footer = () => {
               {/* <Link to="/work">Work</Link> */}
               {/* <Link to="/products">Products</Link> */}
               <Link to="/careers">Careers</Link>
+              <a
+                href={BLOG_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Blog
+              </a>
               <Link to="/request-quote">Request a Quote</Link>
               <a
                 href="https://ideal4finance.com/retail-hi/apply/margav"

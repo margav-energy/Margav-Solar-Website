@@ -3,6 +3,8 @@ import { Link, useLocation } from 'react-router-dom'
 import logoImage from '../assets/logo.png'
 import './Header.css'
 
+const BLOG_URL = 'https://blog.margavsolar.com'
+
 const Header = () => {
   const location = useLocation()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -45,6 +47,15 @@ const Header = () => {
           {/* <Link to="/work" className={`nav-link ${location.pathname === '/work' ? 'active' : ''}`} onClick={closeMenu}>Work</Link> */}
           {/* <Link to="/products" className={`nav-link ${location.pathname === '/products' ? 'active' : ''}`} onClick={closeMenu}>Products</Link> */}
           <Link to="/careers" className={`nav-link ${location.pathname === '/careers' ? 'active' : ''}`} onClick={closeMenu}>Careers</Link>
+          <a
+            href={BLOG_URL}
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            Blog
+          </a>
           <Link to="/request-quote" className={`nav-link ${location.pathname === '/request-quote' ? 'active' : ''}`} onClick={closeMenu}>Request a Quote</Link>
           <Link to="/finance" className={`nav-link ${location.pathname === '/finance' ? 'active' : ''}`} onClick={closeMenu}>Finance Calculator</Link>
           <a

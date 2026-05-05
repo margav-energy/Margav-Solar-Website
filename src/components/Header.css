@@ -18,9 +18,9 @@
 }
 
 .header-container {
-  max-width: 1200px;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -52,13 +52,13 @@
 
 .nav {
   display: flex;
-  gap: 8px;
+  gap: 4px;
   align-items: center;
 }
 
 .nav-link {
-  padding: 10px 16px;
-  font-size: 14px;
+  padding: 8px 12px;
+  font-size: 13px;
   font-weight: 500;
   color: var(--color-black);
   border-radius: 4px;
@@ -89,8 +89,8 @@
 }
 
 .nav-button {
-  padding: 10px 20px;
-  font-size: 14px;
+  padding: 9px 16px;
+  font-size: 13px;
   font-weight: 500;
   border-radius: 4px;
   transition: all var(--transition-base) var(--ease-out);
@@ -101,7 +101,7 @@
 .schedule-button {
   background: var(--gradient-green);
   color: var(--color-white);
-  margin-left: 8px;
+  margin-left: 6px;
 }
 
 .schedule-button:hover {
