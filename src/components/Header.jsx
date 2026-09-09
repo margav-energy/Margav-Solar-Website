@@ -67,6 +67,15 @@ const Header = () => {
           >
             Apply for finance
           </a>
+          <a
+            href="https://ideal4finance.com/apply/margav/loan"
+            className="nav-link"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={closeMenu}
+          >
+            Personal Loan
+          </a>
           <Link to="/schedule" className={`nav-button schedule-button ${location.pathname === '/schedule' ? 'active' : ''}`} onClick={closeMenu}>
             Schedule →
           </Link>

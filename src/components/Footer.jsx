@@ -82,6 +82,13 @@ const Footer = () => {
               >
                 Apply for finance
               </a>
+              <a
+                href="https://ideal4finance.com/apply/margav/loan"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Personal Loan
+              </a>
               <Link to="/schedule">Schedule →</Link>
             </nav>
           </div>
