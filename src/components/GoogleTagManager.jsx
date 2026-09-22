@@ -13,10 +13,19 @@ import { GTM_ID, trackPageView } from '../config/gtm';
 function GoogleTagManager() {
   const location = useLocation();
   const lastPathRef = useRef('');
+  const isFirstRender = useRef(true);
 
   useEffect(() => {
     const currentPath = location.pathname + location.search;
-    
+
+    // Skip the initial load — the Google Tag's own pageview already covers it,
+    // so firing here too would double-count the first page view.
+    if (isFirstRender.current) {
+      isFirstRender.current = false;
+      lastPathRef.current = currentPath;
+      return;
+    }
+
     // Only track if the path has actually changed (prevents duplicates from StrictMode)
     if (currentPath !== lastPathRef.current) {
       lastPathRef.current = currentPath;
