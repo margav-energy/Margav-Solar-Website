@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import emailjs from '@emailjs/browser'
 import ScrollAnimation from '../components/ScrollAnimation'
 import { EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, EMAILJS_PUBLIC_KEY } from '../config/emailjs'
+import { pushToDataLayer } from '../config/gtm'
 import './RequestQuotePage.css'
 
 const RequestQuotePage = () => {
@@ -310,6 +311,16 @@ const RequestQuotePage = () => {
       );
 
       setSubmitStatus("success");
+
+      // Track lead submission in GTM (no PII — name/email/phone stay out of GA4)
+      pushToDataLayer({
+        event: 'lead_capture',
+        lead_source: 'request_quote',
+        services: servicesList || 'none',
+        house_type: formData.houseType || 'not_specified',
+        property_age: formData.propertyAge || 'not_specified',
+        page_path: window.location.pathname
+      });
 
       // Reset form
       setFormData({

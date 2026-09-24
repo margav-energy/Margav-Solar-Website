@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import logoImage from '../assets/logo.png'
+import { trackPhoneClick } from '../config/gtm'
 import './Footer.css'
 
 const BLOG_URL = 'https://blog.margavsolar.com'
@@ -49,7 +50,7 @@ const Footer = () => {
               </div>
               <div className="footer-contact-item">
                 <span className="footer-icon">📞</span>
-                <a href="tel:01889256069">01889 256069</a>
+                <a href="tel:01889256069" onClick={() => trackPhoneClick('footer')}>01889 256069</a>
               </div>
               <div className="footer-contact-item">
                 <span className="footer-icon">✉️</span>

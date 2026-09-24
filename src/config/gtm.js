@@ -25,3 +25,12 @@ export const trackPageView = (url) => {
     page_title: document.title
   });
 };
+
+// Track phone number clicks (conversion signal — no PII, just where the click happened)
+export const trackPhoneClick = (callSource) => {
+  pushToDataLayer({
+    event: 'phone_click',
+    call_source: callSource,
+    page_path: window.location.pathname
+  });
+};

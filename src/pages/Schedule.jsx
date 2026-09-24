@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, useMapEvents } from 'react-leaflet'
 import emailjs from '@emailjs/browser'
 import ScrollAnimation from '../components/ScrollAnimation'
 import { EMAILJS_SERVICE_ID, EMAILJS_PUBLIC_KEY, EMAILJS_SCHEDULE_TEMPLATE_ID } from '../config/emailjs'
+import { pushToDataLayer, trackPhoneClick } from '../config/gtm'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import './Schedule.css'
@@ -210,7 +211,16 @@ const Schedule = () => {
 
       console.log('EmailJS Success:', response)
       setSubmitStatus('success')
-      
+
+      // Track lead submission in GTM (no PII — name/email/phone/address stay out of GA4)
+      pushToDataLayer({
+        event: 'lead_capture',
+        lead_source: 'schedule',
+        property_type: formData.propertyType || 'not_specified',
+        service_of_interest: formData.serviceOfInterest || 'not_specified',
+        page_path: window.location.pathname
+      })
+
       // Reset form
       setFormData({
         firstName: '',
@@ -298,7 +308,7 @@ const Schedule = () => {
                   <div className="contact-detail-content">
                     <h4 className="contact-detail-label">Phone</h4>
                     <p className="contact-detail-text">
-                      <a href="tel:01889256069" className="contact-link">01889 256069</a>
+                      <a href="tel:01889256069" className="contact-link" onClick={() => trackPhoneClick('schedule_page')}>01889 256069</a>
                     </p>
                   </div>
                 </div>
